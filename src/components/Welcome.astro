@@ -1,5 +1,6 @@
 ---
 import Header from "./Header.astro";
+const { t, lang = 'en' } = Astro.props;
 ---
 
 <div
@@ -7,7 +8,7 @@ import Header from "./Header.astro";
 	style='font-family: Inter, "Noto Sans", sans-serif;'
 >
 	<div class="layout-container flex h-full grow flex-col">
-		<Header />
+                <Header t={t} lang={lang} />
 		<div class="px-40 flex flex-1 justify-center py-5">
 			<div
 				class="layout-content-container flex flex-col max-w-[960px] flex-1"
@@ -22,32 +23,27 @@ import Header from "./Header.astro";
 								<h1
 									class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
 								>
-									Streamline Your Operations with Expert
-									DevOps Solutions
+                                                                {t.heroTitle}
 								</h1>
 								<h2
 									class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
 								>
-									I specialize in optimizing software
-									development and deployment processes,
-									ensuring seamless integration and efficient
-									workflows. Let's transform your business
-									with cutting-edge DevOps practices.
+                                                                {t.heroSubtitle}
 								</h2>
 							</div>
 							<button
 								class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0c7ff2] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
 							>
-								<span class="truncate">Explore Services</span>
+                                                                <span class="truncate">{t.buttonExplore}</span>
 							</button>
 						</div>
 					</div>
 				</div>
-				<h2
-					class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
-				>
-					My Services
-				</h2>
+                                <h2
+                                        class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+                                >
+                                        {t.servicesTitle}
+                                </h2>
 				<div
 					class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4"
 				>
@@ -76,13 +72,12 @@ import Header from "./Header.astro";
 							<h2
 								class="text-[#111418] text-base font-bold leading-tight"
 							>
-								Infrastructure Automation
+                                                                {t.services[0].title}
 							</h2>
 							<p
 								class="text-[#60758a] text-sm font-normal leading-normal"
 							>
-								Automate your infrastructure management for
-								scalability and reliability.
+                                                                {t.services[0].description}
 							</p>
 						</div>
 					</div>
@@ -111,14 +106,12 @@ import Header from "./Header.astro";
 							<h2
 								class="text-[#111418] text-base font-bold leading-tight"
 							>
-								Continuous Integration/Continuous Deployment
-								(CI/CD)
+                                                                {t.services[1].title}
 							</h2>
 							<p
 								class="text-[#60758a] text-sm font-normal leading-normal"
 							>
-								Implement CI/CD pipelines for faster and more
-								reliable software releases.
+                                                                {t.services[1].description}
 							</p>
 						</div>
 					</div>
@@ -147,22 +140,21 @@ import Header from "./Header.astro";
 							<h2
 								class="text-[#111418] text-base font-bold leading-tight"
 							>
-								Cloud Solutions
+                                                                {t.services[2].title}
 							</h2>
 							<p
 								class="text-[#60758a] text-sm font-normal leading-normal"
 							>
-								Leverage cloud platforms to enhance your
-								application's performance and availability.
+                                                                {t.services[2].description}
 							</p>
 						</div>
 					</div>
 				</div>
-				<h2
-					class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
-				>
-					Recent Projects
-				</h2>
+                                <h2
+                                        class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+                                >
+                                        {t.projectsTitle}
+                                </h2>
 				<div
 					class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 				>
@@ -179,14 +171,12 @@ import Header from "./Header.astro";
 								<p
 									class="text-[#111418] text-base font-medium leading-normal"
 								>
-									Automated Deployment Pipeline
+                                                                        {t.project1.title}
 								</p>
 								<p
 									class="text-[#60758a] text-sm font-normal leading-normal"
 								>
-									Streamlined deployment process for a
-									large-scale application, reducing deployment
-									time by 60%.
+                                                                        {t.project1.description}
 								</p>
 							</div>
 						</div>
@@ -202,14 +192,12 @@ import Header from "./Header.astro";
 								<p
 									class="text-[#111418] text-base font-medium leading-normal"
 								>
-									Cloud Migration for E-commerce Platform
+                                                                        {t.project2.title}
 								</p>
 								<p
 									class="text-[#60758a] text-sm font-normal leading-normal"
 								>
-									Migrated an e-commerce platform to a
-									cloud-based infrastructure, improving
-									scalability and reducing costs.
+                                                                        {t.project2.description}
 								</p>
 							</div>
 						</div>
@@ -225,14 +213,12 @@ import Header from "./Header.astro";
 								<p
 									class="text-[#111418] text-base font-medium leading-normal"
 								>
-									Enhanced Testing Automation
+                                                                        {t.project3.title}
 								</p>
 								<p
 									class="text-[#60758a] text-sm font-normal leading-normal"
 								>
-									Implemented automated testing frameworks,
-									resulting in a 40% reduction in bugs and
-									faster release cycles.
+                                                                        {t.project3.description}
 								</p>
 							</div>
 						</div>
@@ -248,14 +234,14 @@ import Header from "./Header.astro";
 					<div
 						class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around"
 					>
-						<a
-							class="text-[#60758a] text-base font-normal leading-normal min-w-40"
-							href="#">Privacy Policy</a
-						>
-						<a
-							class="text-[#60758a] text-base font-normal leading-normal min-w-40"
-							href="#">Terms of Service</a
-						>
+                                                <a
+                                                        class="text-[#60758a] text-base font-normal leading-normal min-w-40"
+                                                        href="#">{t.footer.privacy}</a
+                                                >
+                                                <a
+                                                        class="text-[#60758a] text-base font-normal leading-normal min-w-40"
+                                                        href="#">{t.footer.terms}</a
+                                                >
 					</div>
 					<div class="flex flex-wrap justify-center gap-4">
 						<a href="#">
@@ -319,11 +305,11 @@ import Header from "./Header.astro";
 							</div>
 						</a>
 					</div>
-					<p
-						class="text-[#60758a] text-base font-normal leading-normal"
-					>
-						© 2025 Miguel Pineda. All rights reserved.
-					</p>
+                                        <p
+                                                class="text-[#60758a] text-base font-normal leading-normal"
+                                        >
+                                                {t.footer.copyright}
+                                        </p>
 				</footer>
 			</div>
 		</footer>

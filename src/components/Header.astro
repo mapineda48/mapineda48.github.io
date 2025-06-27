@@ -1,3 +1,17 @@
+---
+const { t, lang = "en" } = Astro.props;
+---
+
+<script>
+    window.changeIdiom = () => {
+        const current = window.location.pathname;
+        const newPath = current.startsWith("/es")
+            ? current.replace(/^\/es/, "") || "/"
+            : `/es${current}`;
+        window.location.href = newPath;
+    };
+</script>
+
 <header
     class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f1f2f4] px-10 py-3"
 >
@@ -13,7 +27,10 @@
                     fill="currentColor"></path>
             </svg>
         </div>
-        <a href="/" class="text-[#121416] text-lg font-bold leading-tight tracking-[-0.015em]">
+        <a
+            href="/"
+            class="text-[#121416] text-lg font-bold leading-tight tracking-[-0.015em]"
+        >
             Miguel Pineda
         </a>
     </div>
@@ -21,15 +38,20 @@
         <div class="flex items-center gap-9">
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
-                href="/about">About</a
+                href={lang === "en" ? "/about" : "/es/about"}>{t.nav.about}</a
             >
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
-                href="#">Projects</a
+                href="#">{t.nav.projects}</a
             >
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
-                href="/contact">Contact</a
+                href={lang === "en" ? "/contact" : "/es/contact"}
+                >{t.nav.contact}</a
+            >
+            <a
+                class="text-[#121416] text-sm font-medium leading-normal cursor-pointer"
+                onclick="changeIdiom()">{lang === "en" ? "ES" : "EN"}</a
             >
         </div>
         <div

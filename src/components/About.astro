@@ -1,5 +1,6 @@
 ---
 import Header from "./Header.astro";
+const { t, lang = 'en' } = Astro.props;
 ---
 
 <div
@@ -7,7 +8,7 @@ import Header from "./Header.astro";
     style='font-family: Inter, "Noto Sans", sans-serif;'
 >
     <div class="layout-container flex h-full grow flex-col">
-        <Header />
+        <Header t={t} lang={lang} />
         <div class="px-40 flex flex-1 justify-center py-5">
             <div
                 class="layout-content-container flex flex-col max-w-[960px] flex-1"
@@ -26,18 +27,17 @@ import Header from "./Header.astro";
                                 <p
                                     class="text-[#121416] text-[22px] font-bold leading-tight tracking-[-0.015em] text-center"
                                 >
-                                    Miguel Angel Pineda Vega
+                                    {t.profileName}
                                 </p>
                                 <p
                                     class="text-[#6a7681] text-base font-normal leading-normal text-center"
                                 >
-                                    DevOps Developer
+                                    {t.role}
                                 </p>
                                 <p
                                     class="text-[#6a7681] text-base font-normal leading-normal text-center"
                                 >
-                                    Experienced DevOps professional with a
-                                    passion for automation and efficiency.
+                                    {t.profileDesc}
                                 </p>
                             </div>
                         </div>
@@ -46,24 +46,17 @@ import Header from "./Header.astro";
                 <h2
                     class="text-[#121416] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
                 >
-                    About Me
+                    {t.aboutTitle}
                 </h2>
                 <p
                     class="text-[#121416] text-base font-normal leading-normal pb-3 pt-1 px-4"
                 >
-                    I am a seasoned DevOps engineer with over 5 years of
-                    experience in automating and streamlining software
-                    development and deployment processes. My expertise lies in
-                    building scalable and resilient infrastructure, implementing
-                    CI/CD pipelines, and fostering a collaborative DevOps
-                    culture. I am dedicated to continuous learning and staying
-                    abreast of the latest technologies to deliver innovative
-                    solutions.
+                    {t.aboutDesc1}
                 </p>
                 <h2
                     class="text-[#121416] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
                 >
-                    Technical Skills
+                    {t.skillsTitle}
                 </h2>
                 <div class="flex gap-3 p-3 flex-wrap pr-4">
                     <div
@@ -72,7 +65,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Cloud Computing
+                            {t.skills[0]}
                         </p>
                     </div>
                     <div
@@ -81,7 +74,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Infrastructure as Code
+                            {t.skills[1]}
                         </p>
                     </div>
                     <div
@@ -90,7 +83,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            CI/CD
+                            {t.skills[2]}
                         </p>
                     </div>
                     <div
@@ -99,7 +92,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Containerization
+                            {t.skills[3]}
                         </p>
                     </div>
                     <div
@@ -108,7 +101,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Orchestration
+                            {t.skills[4]}
                         </p>
                     </div>
                     <div
@@ -117,7 +110,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Monitoring
+                            {t.skills[5]}
                         </p>
                     </div>
                     <div
@@ -126,7 +119,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Logging
+                            {t.skills[6]}
                         </p>
                     </div>
                     <div
@@ -135,7 +128,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Scripting
+                            {t.skills[7]}
                         </p>
                     </div>
                     <div
@@ -144,7 +137,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Configuration Management
+                            {t.skills[8]}
                         </p>
                     </div>
                     <div
@@ -153,14 +146,14 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Version Control
+                            {t.skills[9]}
                         </p>
                     </div>
                 </div>
                 <h2
                     class="text-[#121416] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
                 >
-                    Tools
+                    {t.toolsTitle}
                 </h2>
                 <div class="flex gap-3 p-3 flex-wrap pr-4">
                     <div
@@ -169,7 +162,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            AWS
+                            {t.tools[0]}
                         </p>
                     </div>
                     <div
@@ -178,7 +171,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Azure
+                            {t.tools[1]}
                         </p>
                     </div>
                     <div
@@ -187,7 +180,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            GCP
+                            {t.tools[2]}
                         </p>
                     </div>
                     <div
@@ -196,7 +189,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Docker
+                            {t.tools[3]}
                         </p>
                     </div>
                     <div
@@ -205,7 +198,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Kubernetes
+                            {t.tools[4]}
                         </p>
                     </div>
                     <div
@@ -214,7 +207,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Jenkins
+                            {t.tools[5]}
                         </p>
                     </div>
                     <div
@@ -223,7 +216,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            GitLab CI
+                            {t.tools[6]}
                         </p>
                     </div>
                     <div
@@ -232,7 +225,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Terraform
+                            {t.tools[7]}
                         </p>
                     </div>
                     <div
@@ -241,7 +234,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Ansible
+                            {t.tools[8]}
                         </p>
                     </div>
                     <div
@@ -250,7 +243,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Prometheus
+                            {t.tools[9]}
                         </p>
                     </div>
                     <div
@@ -259,7 +252,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Grafana
+                            {t.tools[10]}
                         </p>
                     </div>
                     <div
@@ -268,14 +261,14 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Git
+                            {t.tools[11]}
                         </p>
                     </div>
                 </div>
                 <h2
                     class="text-[#121416] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
                 >
-                    Methodologies
+                    {t.methodologiesTitle}
                 </h2>
                 <div class="flex gap-3 p-3 flex-wrap pr-4">
                     <div
@@ -284,7 +277,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Agile
+                            {t.methodologies[0]}
                         </p>
                     </div>
                     <div
@@ -293,7 +286,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Scrum
+                            {t.methodologies[1]}
                         </p>
                     </div>
                     <div
@@ -302,7 +295,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            Kanban
+                            {t.methodologies[2]}
                         </p>
                     </div>
                     <div
@@ -311,7 +304,7 @@ import Header from "./Header.astro";
                         <p
                             class="text-[#121416] text-sm font-medium leading-normal"
                         >
-                            DevOps
+                            {t.methodologies[3]}
                         </p>
                     </div>
                 </div>
