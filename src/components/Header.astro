@@ -1,3 +1,7 @@
+---
+const { t, lang = 'en' } = Astro.props;
+---
+
 <header
     class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f1f2f4] px-10 py-3"
 >
@@ -21,15 +25,19 @@
         <div class="flex items-center gap-9">
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
-                href="/about">About</a
+                href={lang === 'en' ? '/about' : '/es/about'}>{t.nav.about}</a
             >
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
-                href="#">Projects</a
+                href="#">{t.nav.projects}</a
             >
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
-                href="/contact">Contact</a
+                href={lang === 'en' ? '/contact' : '/es/contact'}>{t.nav.contact}</a
+            >
+            <a
+                class="text-[#121416] text-sm font-medium leading-normal"
+                href={lang === 'en' ? '/es/' : '/'}>{lang === 'en' ? 'ES' : 'EN'}</a
             >
         </div>
         <div

@@ -1,9 +1,9 @@
 ---
-import About from '../components/About.astro';
-import Layout from '../layouts/Layout.astro';
-import { translations } from '../i18n';
+import Contact from '../../components/Contact.astro';
+import Layout from '../../layouts/Layout.astro';
+import { translations } from '../../i18n';
 
-const lang = 'en';
+const lang = 'es';
 const t = translations[lang];
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -11,5 +11,5 @@ const t = translations[lang];
 ---
 
 <Layout lang={lang}>
-        <About t={{ nav: t.nav, ...t.about }} lang={lang} />
+        <Contact t={{ nav: t.nav, ...t.contact }} lang={lang} />
 </Layout>
