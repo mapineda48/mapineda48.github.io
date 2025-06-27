@@ -1,210 +1,180 @@
----
-import astroLogo from '../assets/astro.svg';
-import background from '../assets/background.svg';
----
-
-<div id="container">
-	<img id="background" src={background.src} alt="" fetchpriority="high" />
-	<main>
-		<section id="hero">
-			<a href="https://astro.build"
-				><img src={astroLogo.src} width="115" height="48" alt="Astro Homepage" /></a
-			>
-			<h1>
-				To get started, open the <code><pre>src/pages</pre></code> directory in your project.
-			</h1>
-			<section id="links">
-				<a class="button" href="https://docs.astro.build">Read our docs</a>
-				<a href="https://astro.build/chat"
-					>Join our Discord <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.14 96.36"
-						><path
-							fill="currentColor"
-							d="M107.7 8.07A105.15 105.15 0 0 0 81.47 0a72.06 72.06 0 0 0-3.36 6.83 97.68 97.68 0 0 0-29.11 0A72.37 72.37 0 0 0 45.64 0a105.89 105.89 0 0 0-26.25 8.09C2.79 32.65-1.71 56.6.54 80.21a105.73 105.73 0 0 0 32.17 16.15 77.7 77.7 0 0 0 6.89-11.11 68.42 68.42 0 0 1-10.85-5.18c.91-.66 1.8-1.34 2.66-2a75.57 75.57 0 0 0 64.32 0c.87.71 1.76 1.39 2.66 2a68.68 68.68 0 0 1-10.87 5.19 77 77 0 0 0 6.89 11.1 105.25 105.25 0 0 0 32.19-16.14c2.64-27.38-4.51-51.11-18.9-72.15ZM42.45 65.69C36.18 65.69 31 60 31 53s5-12.74 11.43-12.74S54 46 53.89 53s-5.05 12.69-11.44 12.69Zm42.24 0C78.41 65.69 73.25 60 73.25 53s5-12.74 11.44-12.74S96.23 46 96.12 53s-5.04 12.69-11.43 12.69Z"
-						></path></svg
-					>
-				</a>
-			</section>
-		</section>
-	</main>
-
-	<a href="https://astro.build/blog/astro-5/" id="news" class="box">
-		<svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"
-			><path
-				d="M24.667 12c1.333 1.414 2 3.192 2 5.334 0 4.62-4.934 5.7-7.334 12C18.444 28.567 18 27.456 18 26c0-4.642 6.667-7.053 6.667-14Zm-5.334-5.333c1.6 1.65 2.4 3.43 2.4 5.333 0 6.602-8.06 7.59-6.4 17.334C13.111 27.787 12 25.564 12 22.666c0-4.434 7.333-8 7.333-16Zm-6-5.333C15.111 3.555 16 5.556 16 7.333c0 8.333-11.333 10.962-5.333 22-3.488-.774-6-4-6-8 0-8.667 8.666-10 8.666-20Z"
-				fill="#111827"></path></svg
-		>
-		<h2>What's New in Astro 5.0?</h2>
-		<p>
-			From content layers to server islands, click to learn more about the new features and
-			improvements in Astro 5.0
-		</p>
-	</a>
-</div>
-
-<style>
-	#background {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		filter: blur(100px);
-	}
-
-	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
-		height: 100%;
-	}
-
-	main {
-		height: 100%;
-		display: flex;
-		justify-content: center;
-	}
-
-	#hero {
-		display: flex;
-		align-items: start;
-		flex-direction: column;
-		justify-content: center;
-		padding: 16px;
-	}
-
-	h1 {
-		font-size: 22px;
-		margin-top: 0.25em;
-	}
-
-	#links {
-		display: flex;
-		gap: 16px;
-	}
-
-	#links a {
-		display: flex;
-		align-items: center;
-		padding: 10px 12px;
-		color: #111827;
-		text-decoration: none;
-		transition: color 0.2s;
-	}
-
-	#links a:hover {
-		color: rgb(78, 80, 86);
-	}
-
-	#links a svg {
-		height: 1em;
-		margin-left: 8px;
-	}
-
-	#links a.button {
-		color: white;
-		background: linear-gradient(83.21deg, #3245ff 0%, #bc52ee 100%);
-		box-shadow:
-			inset 0 0 0 1px rgba(255, 255, 255, 0.12),
-			inset 0 -2px 0 rgba(0, 0, 0, 0.24);
-		border-radius: 10px;
-	}
-
-	#links a.button:hover {
-		color: rgb(230, 230, 230);
-		box-shadow: none;
-	}
-
-	pre {
-		font-family:
-			ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono',
-			monospace;
-		font-weight: normal;
-		background: linear-gradient(14deg, #d83333 0%, #f041ff 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin: 0;
-	}
-
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
-
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
-
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-
-		#hero {
-			display: block;
-			padding-top: 10%;
-		}
-
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
-</style>
+<div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+	<div class="layout-container flex h-full grow flex-col">
+	  <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f0f2f5] px-10 py-3">
+		<div class="flex items-center gap-4 text-[#111418]">
+		  <div class="size-4">
+			<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+			  <path
+				d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+				fill="currentColor"
+			  ></path>
+			</svg>
+		  </div>
+		  <h2 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em]">Miguel Pineda</h2>
+		</div>
+		<div class="flex flex-1 justify-end gap-8">
+		  <div class="flex items-center gap-9">
+			<a class="text-[#111418] text-sm font-medium leading-normal" href="#">About</a>
+			<a class="text-[#111418] text-sm font-medium leading-normal" href="#">Services</a>
+			<a class="text-[#111418] text-sm font-medium leading-normal" href="#">Projects</a>
+			<a class="text-[#111418] text-sm font-medium leading-normal" href="#">Contact</a>
+		  </div>
+		  <button
+			class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-[#0c7ff2] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+		  >
+			<span class="truncate">Get Started</span>
+		  </button>
+		</div>
+	  </header>
+	  <div class="px-40 flex flex-1 justify-center py-5">
+		<div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+		  <div class="@container">
+			<div class="@[480px]:p-4">
+			  <div
+				class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-start justify-end px-4 pb-10 @[480px]:px-10"
+				style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVfNtm2BfJhhKTGrYpwzhlIp_DzWFlNUDEh1tFkAB3OU5uSrNvbooEabLPKDMNDsP35Z1EXK9nebnH7Lxy1xTpQUfiAZPca_FCp_qRDQKXFkcyEu9UeWmBM_XOJ7mDhRrd4RxATng68kgs8r0Bo154IsQjZirdBASV-MlN3ct-WgRd6exPjHnJE8rauUma-fC1dspyik7md7qNE_eaHgscvUB_2sg3v8aE6O7yjMkU2KvL7wBCNY4vBlYhw0x7kylBjv9BmSUE60C9");'
+			  >
+				<div class="flex flex-col gap-2 text-left">
+				  <h1
+					class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+				  >
+					Streamline Your Operations with Expert DevOps Solutions
+				  </h1>
+				  <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+					I specialize in optimizing software development and deployment processes, ensuring seamless integration and efficient workflows. Let's transform your business
+					with cutting-edge DevOps practices.
+				  </h2>
+				</div>
+				<button
+				  class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0c7ff2] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+				>
+				  <span class="truncate">Explore Services</span>
+				</button>
+			  </div>
+			</div>
+		  </div>
+		  <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">My Services</h2>
+		  <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+			<div class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col">
+			  <div class="text-[#111418]" data-icon="Database" data-size="24px" data-weight="regular">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+				  <path
+					d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"
+				  ></path>
+				</svg>
+			  </div>
+			  <div class="flex flex-col gap-1">
+				<h2 class="text-[#111418] text-base font-bold leading-tight">Infrastructure Automation</h2>
+				<p class="text-[#60758a] text-sm font-normal leading-normal">Automate your infrastructure management for scalability and reliability.</p>
+			  </div>
+			</div>
+			<div class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col">
+			  <div class="text-[#111418]" data-icon="Code" data-size="24px" data-weight="regular">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+				  <path
+					d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"
+				  ></path>
+				</svg>
+			  </div>
+			  <div class="flex flex-col gap-1">
+				<h2 class="text-[#111418] text-base font-bold leading-tight">Continuous Integration/Continuous Deployment (CI/CD)</h2>
+				<p class="text-[#60758a] text-sm font-normal leading-normal">Implement CI/CD pipelines for faster and more reliable software releases.</p>
+			  </div>
+			</div>
+			<div class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col">
+			  <div class="text-[#111418]" data-icon="Cloud" data-size="24px" data-weight="regular">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+				  <path
+					d="M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.11A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,72,72Z"
+				  ></path>
+				</svg>
+			  </div>
+			  <div class="flex flex-col gap-1">
+				<h2 class="text-[#111418] text-base font-bold leading-tight">Cloud Solutions</h2>
+				<p class="text-[#60758a] text-sm font-normal leading-normal">Leverage cloud platforms to enhance your application's performance and availability.</p>
+			  </div>
+			</div>
+		  </div>
+		  <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Recent Projects</h2>
+		  <div class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden">
+			<div class="flex items-stretch p-4 gap-3">
+			  <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+				<div
+				  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+				  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeTTfepcz5ZLh1DuCUMs7JjMjLSi3V1Mq8do_H1gS8SRGltvouEEg1-kb5knnNtmo4Bd9kpsJwR3StrP9kgTSLCd4uNK9x1g7QtTDtUS1VIEHUkmklU3oPWz0m9eA3fJnmg1hqwxPUkj3GawMDuUN78Lprp04YI_VldL6owssc6jPsKHNYra11mi_zVMPl030cCtb81SFSvJcq_DGY7MgfjjyOMJ8y_Hq-4zW7NkZHOayxss9VpFCYZU_BsGfvRjGaMmrGQn1-PgcC");'
+				></div>
+				<div>
+				  <p class="text-[#111418] text-base font-medium leading-normal">Automated Deployment Pipeline</p>
+				  <p class="text-[#60758a] text-sm font-normal leading-normal">Streamlined deployment process for a large-scale application, reducing deployment time by 60%.</p>
+				</div>
+			  </div>
+			  <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+				<div
+				  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+				  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVXkEDGPi1tZZqx-qIYBUoCTc6b_rsBSs8-jz_XfMnkn0m2BJz7RvG0CT_NGDW45ksomvRRG2-YJqrlENLLeErWSNnCxWVVMV636R_YnJOOEPBcvWP6tvGJS59AOhcsAW8Me2Y27B--fN2Sirc_u-3giC41ii96S1tRTIEGaBmqjKjBXDKfP_lcG0Vp9VGywP2COBLUHbFix2ftAI-il56VArdSSZ5Pa94nEobObyx_wOQF9gkdgoI7p_v9J98eV15BcAU8ry_y8mB");'
+				></div>
+				<div>
+				  <p class="text-[#111418] text-base font-medium leading-normal">Cloud Migration for E-commerce Platform</p>
+				  <p class="text-[#60758a] text-sm font-normal leading-normal">
+					Migrated an e-commerce platform to a cloud-based infrastructure, improving scalability and reducing costs.
+				  </p>
+				</div>
+			  </div>
+			  <div class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60">
+				<div
+				  class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
+				  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9lYcX2rd1g-5wcTgmGEtw9GcLWGkBbYw7QxqVtaMVrD7GqB-CR9hh4lMDDZctsv3N2AjRVwDDlA3a6BJ2fE5iT58Tj79YdDGF5BRyCcxc7TRn6uPcWlCLeu86y7owhNac16c3M5Jbvg7Hpk_dVU9HPR64WXOWhnNa8ZkiSOiv2F0CW-OrNGANpANZkceI7Ao314vnB1SF0dXvGCkucNxTCi8sHXuzIEyXk7AlhVaTwtDh7lSPcF3WgmHIh83usUlJB7DEVaF2VgWj");'
+				></div>
+				<div>
+				  <p class="text-[#111418] text-base font-medium leading-normal">Enhanced Testing Automation</p>
+				  <p class="text-[#60758a] text-sm font-normal leading-normal">
+					Implemented automated testing frameworks, resulting in a 40% reduction in bugs and faster release cycles.
+				  </p>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <footer class="flex justify-center">
+		<div class="flex max-w-[960px] flex-1 flex-col">
+		  <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+			<div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
+			  <a class="text-[#60758a] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
+			  <a class="text-[#60758a] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
+			</div>
+			<div class="flex flex-wrap justify-center gap-4">
+			  <a href="#">
+				<div class="text-[#60758a]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
+				  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+					<path
+					  d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
+					></path>
+				  </svg>
+				</div>
+			  </a>
+			  <a href="#">
+				<div class="text-[#60758a]" data-icon="LinkedinLogo" data-size="24px" data-weight="regular">
+				  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+					<path
+					  d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"
+					></path>
+				  </svg>
+				</div>
+			  </a>
+			  <a href="#">
+				<div class="text-[#60758a]" data-icon="GithubLogo" data-size="24px" data-weight="regular">
+				  <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+					<path
+					  d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
+					></path>
+				  </svg>
+				</div>
+			  </a>
+			</div>
+			<p class="text-[#60758a] text-base font-normal leading-normal">© 2024 DevOps Pro. All rights reserved.</p>
+		  </footer>
+		</div>
+	  </footer>
+	</div>
+  </div>
