@@ -1,48 +1,55 @@
-# Astro Starter Kit: Basics
+# Sitio web personal con Astro
 
-```sh
-pnpm create astro@latest -- --template basics
+Este repositorio contiene el c\u00f3digo fuente de [mapineda48.de](https://www.mapineda48.de), una p\u00e1gina personal desarrollada con **Astro** e integrada con React y Tailwind CSS. El objetivo principal es servir como espacio de presentaci\u00f3n y experimentaci\u00f3n con estas tecnolog\u00edas.
+
+## \u00bfQu\u00e9 es Astro?
+
+[Astro](https://astro.build) es un framework orientado a la generaci\u00f3n de sitios est\u00e1ticos r\u00e1pidos. Su arquitectura permite usar componentes de varios frameworks (como React o Vue) y producir HTML optimizado para obtener tiempos de carga m\u00e1s veloces. Gracias a su enfoque _islands_, solo se ejecuta JavaScript donde es realmente necesario.
+
+## Estructura del proyecto
+
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
-│   └── favicon.svg
+├── public/            Archivos est\u00e1ticos
 ├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/        Recursos (im\u00e1genes, fuentes, ...)
+│   ├── components/    Componentes de la interfaz
+│   ├── layouts/       Dise\u00f1os reutilizables
+│   └── pages/         P\u00e1ginas del sitio
+└── package.json       Definici\u00f3n de dependencias
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## C\u00f3mo empezar a trabajar
 
-## 🧞 Commands
+1. Clona el repositorio y accede a la carpeta del proyecto.
+2. Instala las dependencias ejecutando:
 
-All commands are run from the root of the project, from a terminal:
+   ```bash
+   pnpm install
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+3. Inicia el servidor de desarrollo con:
 
-## 👀 Want to learn more?
+   ```bash
+   pnpm dev
+   ```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+   Esto levantar\u00e1 el sitio en `http://localhost:4321`.
+
+4. Para generar la versi\u00f3n de producci\u00f3n ejecuta:
+
+   ```bash
+   pnpm build
+   ```
+
+5. Si deseas revisar el resultado del _build_ localmente:
+
+   ```bash
+   pnpm preview
+   ```
+
+## Recursos adicionales
+
+- Documentaci\u00f3n oficial de Astro: <https://docs.astro.build>
+- Comunidad en Discord: <https://astro.build/chat>
+
