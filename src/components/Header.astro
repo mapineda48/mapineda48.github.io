@@ -13,7 +13,7 @@ const { t, lang = "en" } = Astro.props;
 </script>
 
 <header
-    class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f1f2f4] px-10 py-3"
+    class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#f1f2f4] px-4 sm:px-10 py-3"
 >
     <div class="flex items-center gap-4 text-[#121416]">
         <div class="size-4">
@@ -34,15 +34,11 @@ const { t, lang = "en" } = Astro.props;
             Miguel Pineda
         </a>
     </div>
-    <div class="flex flex-1 justify-end gap-8">
-        <div class="flex items-center gap-9">
+    <div class="flex flex-1 flex-wrap justify-end gap-1 sm:flex-nowrap sm:gap-8">
+        <div class="flex flex-wrap items-center gap-1 sm:flex-nowrap sm:gap-9">
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
                 href={lang === "en" ? "/about" : "/es/about"}>{t.nav.about}</a
-            >
-            <a
-                class="text-[#121416] text-sm font-medium leading-normal"
-                href="#">{t.nav.projects}</a
             >
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
@@ -55,7 +51,7 @@ const { t, lang = "en" } = Astro.props;
             >
         </div>
         <div
-            class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+            class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-8 sm:size-10"
             style='background-image: url("/me.png");'
         >
         </div>

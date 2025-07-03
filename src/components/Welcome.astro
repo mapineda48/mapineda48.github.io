@@ -1,227 +1,111 @@
 ---
 import Header from "./Header.astro";
-const { t, lang = 'en' } = Astro.props;
+const { t, lang = "en" } = Astro.props;
 ---
 
 <div
-	class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden"
+	class="relative flex size-full min-h-screen flex-col bg-white overflow-x-hidden"
 	style='font-family: Inter, "Noto Sans", sans-serif;'
 >
 	<div class="layout-container flex h-full grow flex-col">
-                <Header t={t} lang={lang} />
-		<div class="px-40 flex flex-1 justify-center py-5">
+		<Header t={t} lang={lang} />
+
+		<div
+			class="px-4 sm:px-8 lg:px-40 flex flex-1 justify-center py-5 w-full"
+		>
 			<div
-				class="layout-content-container flex flex-col max-w-[960px] flex-1"
+				class="layout-content-container flex flex-col w-full max-w-[960px]"
 			>
-				<div class="@container">
-					<div class="@[480px]:p-4">
-						<div
-							class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-lg items-start justify-end px-4 pb-10 @[480px]:px-10"
-							style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVfNtm2BfJhhKTGrYpwzhlIp_DzWFlNUDEh1tFkAB3OU5uSrNvbooEabLPKDMNDsP35Z1EXK9nebnH7Lxy1xTpQUfiAZPca_FCp_qRDQKXFkcyEu9UeWmBM_XOJ7mDhRrd4RxATng68kgs8r0Bo154IsQjZirdBASV-MlN3ct-WgRd6exPjHnJE8rauUma-fC1dspyik7md7qNE_eaHgscvUB_2sg3v8aE6O7yjMkU2KvL7wBCNY4vBlYhw0x7kylBjv9BmSUE60C9");'
-						>
-							<div class="flex flex-col gap-2 text-left">
-								<h1
-									class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
-								>
-                                                                {t.heroTitle}
-								</h1>
-								<h2
-									class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
-								>
-                                                                {t.heroSubtitle}
-								</h2>
-							</div>
-							<button
-								class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0c7ff2] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+				<!-- HERO -->
+				<div class="p-4 sm:p-6">
+					<div
+						class="flex flex-col items-start justify-end gap-4 sm:gap-8 bg-cover bg-center bg-no-repeat sm:rounded-lg px-4 pb-10 sm:px-10 w-full min-h-[360px] sm:min-h-[480px]"
+						style='background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVfNtm2BfJhhKTGrYpwzhlIp_DzWFlNUDEh1tFkAB3OU5uSrNvbooEabLPKDMNDsP35Z1EXK9nebnH7Lxy1xTpQUfiAZPca_FCp_qRDQKXFkcyEu9UeWmBM_XOJ7mDhRrd4RxATng68kgs8r0Bo154IsQjZirdBASV-MlN3ct-WgRd6exPjHnJE8rauUma-fC1dspyik7md7qNE_eaHgscvUB_2sg3v8aE6O7yjMkU2KvL7wBCNY4vBlYhw0x7kylBjv9BmSUE60C9");'
+					>
+						<div class="flex flex-col gap-2 text-left">
+							<h1
+								class="text-white text-3xl sm:text-5xl font-black leading-tight tracking-tight"
 							>
-                                                                <span class="truncate">{t.buttonExplore}</span>
-							</button>
+								{t.heroTitle}
+							</h1>
+							<h2
+								class="text-white text-sm sm:text-base font-normal leading-normal"
+							>
+								{t.heroSubtitle}
+							</h2>
 						</div>
+						<button
+							class="w-full sm:w-auto h-10 sm:h-12 px-4 sm:px-5 rounded-lg bg-[#0c7ff2] text-white text-sm sm:text-base font-bold tracking-wide"
+						>
+							<span class="truncate">{t.buttonExplore}</span>
+						</button>
 					</div>
 				</div>
-                                <h2
-                                        class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
-                                >
-                                        {t.servicesTitle}
-                                </h2>
-				<div
-					class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4"
+
+				<!-- SERVICES -->
+				<h2
+					class="text-[#111418] text-xl sm:text-[22px] font-bold px-4 pb-3 pt-5"
 				>
-					<div
-						class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col"
-					>
-						<div
-							class="text-[#111418]"
-							data-icon="Database"
-							data-size="24px"
-							data-weight="regular"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24px"
-								height="24px"
-								fill="currentColor"
-								viewBox="0 0 256 256"
-							>
-								<path
-									d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"
-								></path>
-							</svg>
-						</div>
-						<div class="flex flex-col gap-1">
-							<h2
-								class="text-[#111418] text-base font-bold leading-tight"
-							>
-                                                                {t.services[0].title}
-							</h2>
-							<p
-								class="text-[#60758a] text-sm font-normal leading-normal"
-							>
-                                                                {t.services[0].description}
-							</p>
-						</div>
-					</div>
-					<div
-						class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col"
-					>
-						<div
-							class="text-[#111418]"
-							data-icon="Code"
-							data-size="24px"
-							data-weight="regular"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24px"
-								height="24px"
-								fill="currentColor"
-								viewBox="0 0 256 256"
-							>
-								<path
-									d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"
-								></path>
-							</svg>
-						</div>
-						<div class="flex flex-col gap-1">
-							<h2
-								class="text-[#111418] text-base font-bold leading-tight"
-							>
-                                                                {t.services[1].title}
-							</h2>
-							<p
-								class="text-[#60758a] text-sm font-normal leading-normal"
-							>
-                                                                {t.services[1].description}
-							</p>
-						</div>
-					</div>
-					<div
-						class="flex flex-1 gap-3 rounded-lg border border-[#dbe0e6] bg-white p-4 flex-col"
-					>
-						<div
-							class="text-[#111418]"
-							data-icon="Cloud"
-							data-size="24px"
-							data-weight="regular"
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24px"
-								height="24px"
-								fill="currentColor"
-								viewBox="0 0 256 256"
-							>
-								<path
-									d="M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.11A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,72,72Z"
-								></path>
-							</svg>
-						</div>
-						<div class="flex flex-col gap-1">
-							<h2
-								class="text-[#111418] text-base font-bold leading-tight"
-							>
-                                                                {t.services[2].title}
-							</h2>
-							<p
-								class="text-[#60758a] text-sm font-normal leading-normal"
-							>
-                                                                {t.services[2].description}
-							</p>
-						</div>
-					</div>
+					{t.servicesTitle}
+				</h2>
+				<div
+					class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-3 px-4 sm:px-6"
+				>
+					{
+						t.services.map((service: any, i: number) => (
+							<div class="flex flex-1 flex-col gap-3 p-4 rounded-lg border border-[#dbe0e6] bg-white">
+								<div class="text-[#111418]">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24px"
+										height="24px"
+										fill="currentColor"
+										viewBox="0 0 256 256"
+									>
+										<path d={service.iconPath} />
+									</svg>
+								</div>
+								<div class="flex flex-col gap-1">
+									<h2 class="text-base font-bold leading-tight">
+										{service.title}
+									</h2>
+									<p class="text-sm font-normal text-[#60758a] leading-normal">
+										{service.description}
+									</p>
+								</div>
+							</div>
+						))
+					}
 				</div>
-                                <h2
-                                        class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
-                                >
-                                        {t.projectsTitle}
-                                </h2>
-				<div
-					class="flex overflow-y-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+
+				<!-- PROJECTS -->
+				<h2
+					class="text-[#111418] text-xl sm:text-[22px] font-bold px-4 pb-3 pt-5"
 				>
-					<div class="flex items-stretch p-4 gap-3">
-						<div
-							class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60"
-						>
-							<div
-								class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
-								style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAeTTfepcz5ZLh1DuCUMs7JjMjLSi3V1Mq8do_H1gS8SRGltvouEEg1-kb5knnNtmo4Bd9kpsJwR3StrP9kgTSLCd4uNK9x1g7QtTDtUS1VIEHUkmklU3oPWz0m9eA3fJnmg1hqwxPUkj3GawMDuUN78Lprp04YI_VldL6owssc6jPsKHNYra11mi_zVMPl030cCtb81SFSvJcq_DGY7MgfjjyOMJ8y_Hq-4zW7NkZHOayxss9VpFCYZU_BsGfvRjGaMmrGQn1-PgcC");'
-							>
-							</div>
-							<div>
-								<p
-									class="text-[#111418] text-base font-medium leading-normal"
-								>
-                                                                        {t.project1.title}
-								</p>
-								<p
-									class="text-[#60758a] text-sm font-normal leading-normal"
-								>
-                                                                        {t.project1.description}
-								</p>
-							</div>
-						</div>
-						<div
-							class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60"
-						>
-							<div
-								class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
-								style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDVXkEDGPi1tZZqx-qIYBUoCTc6b_rsBSs8-jz_XfMnkn0m2BJz7RvG0CT_NGDW45ksomvRRG2-YJqrlENLLeErWSNnCxWVVMV636R_YnJOOEPBcvWP6tvGJS59AOhcsAW8Me2Y27B--fN2Sirc_u-3giC41ii96S1tRTIEGaBmqjKjBXDKfP_lcG0Vp9VGywP2COBLUHbFix2ftAI-il56VArdSSZ5Pa94nEobObyx_wOQF9gkdgoI7p_v9J98eV15BcAU8ry_y8mB");'
-							>
-							</div>
-							<div>
-								<p
-									class="text-[#111418] text-base font-medium leading-normal"
-								>
-                                                                        {t.project2.title}
-								</p>
-								<p
-									class="text-[#60758a] text-sm font-normal leading-normal"
-								>
-                                                                        {t.project2.description}
-								</p>
-							</div>
-						</div>
-						<div
-							class="flex h-full flex-1 flex-col gap-4 rounded-lg min-w-60"
-						>
-							<div
-								class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex flex-col"
-								style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9lYcX2rd1g-5wcTgmGEtw9GcLWGkBbYw7QxqVtaMVrD7GqB-CR9hh4lMDDZctsv3N2AjRVwDDlA3a6BJ2fE5iT58Tj79YdDGF5BRyCcxc7TRn6uPcWlCLeu86y7owhNac16c3M5Jbvg7Hpk_dVU9HPR64WXOWhnNa8ZkiSOiv2F0CW-OrNGANpANZkceI7Ao314vnB1SF0dXvGCkucNxTCi8sHXuzIEyXk7AlhVaTwtDh7lSPcF3WgmHIh83usUlJB7DEVaF2VgWj");'
-							>
-							</div>
-							<div>
-								<p
-									class="text-[#111418] text-base font-medium leading-normal"
-								>
-                                                                        {t.project3.title}
-								</p>
-								<p
-									class="text-[#60758a] text-sm font-normal leading-normal"
-								>
-                                                                        {t.project3.description}
-								</p>
-							</div>
-						</div>
+					{t.projectsTitle}
+				</h2>
+				<div
+					class="flex overflow-x-auto snap-x scroll-smooth [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+				>
+					<div class="flex items-stretch gap-3 px-4 sm:px-6">
+						{
+							t.projects.map((project: any) => (
+								<div class="flex flex-col gap-4 rounded-lg min-w-[240px] snap-start max-w-full">
+									<div
+										class="aspect-video bg-cover bg-center rounded-lg"
+										style={`background-image: url("${project.image}")`}
+									/>
+									<div>
+										<p class="text-base font-medium text-[#111418]">
+											{project.title}
+										</p>
+										<p class="text-sm text-[#60758a]">
+											{project.description}
+										</p>
+									</div>
+								</div>
+							))
+						}
 					</div>
 				</div>
 			</div>
@@ -234,14 +118,14 @@ const { t, lang = 'en' } = Astro.props;
 					<div
 						class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around"
 					>
-                                                <a
-                                                        class="text-[#60758a] text-base font-normal leading-normal min-w-40"
-                                                        href="#">{t.footer.privacy}</a
-                                                >
-                                                <a
-                                                        class="text-[#60758a] text-base font-normal leading-normal min-w-40"
-                                                        href="#">{t.footer.terms}</a
-                                                >
+						<a
+							class="text-[#60758a] text-base font-normal leading-normal min-w-40"
+							href="#">{t.footer.privacy}</a
+						>
+						<a
+							class="text-[#60758a] text-base font-normal leading-normal min-w-40"
+							href="#">{t.footer.terms}</a
+						>
 					</div>
 					<div class="flex flex-wrap justify-center gap-4">
 						<a href="#">
@@ -305,11 +189,11 @@ const { t, lang = 'en' } = Astro.props;
 							</div>
 						</a>
 					</div>
-                                        <p
-                                                class="text-[#60758a] text-base font-normal leading-normal"
-                                        >
-                                                {t.footer.copyright}
-                                        </p>
+					<p
+						class="text-[#60758a] text-base font-normal leading-normal"
+					>
+						{t.footer.copyright}
+					</p>
 				</footer>
 			</div>
 		</footer>
