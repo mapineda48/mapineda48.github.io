@@ -3,72 +3,199 @@ import Header from "./Header.astro";
 const { t, lang = "en" } = Astro.props;
 ---
 
-<div class="relative flex size-full min-h-screen flex-col bg-white overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+<div
+	class="relative flex size-full min-h-screen flex-col bg-white overflow-x-hidden"
+	style='font-family: Inter, "Noto Sans", sans-serif;'
+>
 	<div class="layout-container flex h-full grow flex-col">
-	  <Header t={t} lang={lang} />
-  
-	  <div class="px-4 sm:px-8 lg:px-40 flex flex-1 justify-center py-5 w-full">
-		<div class="layout-content-container flex flex-col w-full max-w-[960px]">
-		  <!-- HERO -->
-		  <div class="p-4 sm:p-6">
+		<Header t={t} lang={lang} />
+
+		<div
+			class="px-4 sm:px-8 lg:px-40 flex flex-1 justify-center py-5 w-full"
+		>
 			<div
-			  class="flex flex-col items-start justify-end gap-4 sm:gap-8 bg-cover bg-center bg-no-repeat sm:rounded-lg px-4 pb-10 sm:px-10 w-full min-h-[360px] sm:min-h-[480px]"
-			  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVfNtm2BfJhhKTGrYpwzhlIp_DzWFlNUDEh1tFkAB3OU5uSrNvbooEabLPKDMNDsP35Z1EXK9nebnH7Lxy1xTpQUfiAZPca_FCp_qRDQKXFkcyEu9UeWmBM_XOJ7mDhRrd4RxATng68kgs8r0Bo154IsQjZirdBASV-MlN3ct-WgRd6exPjHnJE8rauUma-fC1dspyik7md7qNE_eaHgscvUB_2sg3v8aE6O7yjMkU2KvL7wBCNY4vBlYhw0x7kylBjv9BmSUE60C9");'
+				class="layout-content-container flex flex-col w-full max-w-[960px]"
 			>
-			  <div class="flex flex-col gap-2 text-left">
-				<h1 class="text-white text-3xl sm:text-5xl font-black leading-tight tracking-tight">
-				  {t.heroTitle}
-				</h1>
-				<h2 class="text-white text-sm sm:text-base font-normal leading-normal">
-				  {t.heroSubtitle}
+				<!-- HERO -->
+				<div class="p-4 sm:p-6">
+					<div
+						class="flex flex-col items-start justify-end gap-4 sm:gap-8 bg-cover bg-center bg-no-repeat sm:rounded-lg px-4 pb-10 sm:px-10 w-full min-h-[360px] sm:min-h-[480px]"
+						style='background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVfNtm2BfJhhKTGrYpwzhlIp_DzWFlNUDEh1tFkAB3OU5uSrNvbooEabLPKDMNDsP35Z1EXK9nebnH7Lxy1xTpQUfiAZPca_FCp_qRDQKXFkcyEu9UeWmBM_XOJ7mDhRrd4RxATng68kgs8r0Bo154IsQjZirdBASV-MlN3ct-WgRd6exPjHnJE8rauUma-fC1dspyik7md7qNE_eaHgscvUB_2sg3v8aE6O7yjMkU2KvL7wBCNY4vBlYhw0x7kylBjv9BmSUE60C9");'
+					>
+						<div class="flex flex-col gap-2 text-left">
+							<h1
+								class="text-white text-3xl sm:text-5xl font-black leading-tight tracking-tight"
+							>
+								{t.heroTitle}
+							</h1>
+							<h2
+								class="text-white text-sm sm:text-base font-normal leading-normal"
+							>
+								{t.heroSubtitle}
+							</h2>
+						</div>
+						<button
+							class="w-full sm:w-auto h-10 sm:h-12 px-4 sm:px-5 rounded-lg bg-[#0c7ff2] text-white text-sm sm:text-base font-bold tracking-wide"
+						>
+							<span class="truncate">{t.buttonExplore}</span>
+						</button>
+					</div>
+				</div>
+
+				<!-- SERVICES -->
+				<h2
+					class="text-[#111418] text-xl sm:text-[22px] font-bold px-4 pb-3 pt-5"
+				>
+					{t.servicesTitle}
 				</h2>
-			  </div>
-			  <button class="w-full sm:w-auto h-10 sm:h-12 px-4 sm:px-5 rounded-lg bg-[#0c7ff2] text-white text-sm sm:text-base font-bold tracking-wide">
-				<span class="truncate">{t.buttonExplore}</span>
-			  </button>
+				<div
+					class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-3 px-4 sm:px-6"
+				>
+					{
+						t.services.map((service: any, i: number) => (
+							<div class="flex flex-1 flex-col gap-3 p-4 rounded-lg border border-[#dbe0e6] bg-white">
+								<div class="text-[#111418]">
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="24px"
+										height="24px"
+										fill="currentColor"
+										viewBox="0 0 256 256"
+									>
+										<path d={service.iconPath} />
+									</svg>
+								</div>
+								<div class="flex flex-col gap-1">
+									<h2 class="text-base font-bold leading-tight">
+										{service.title}
+									</h2>
+									<p class="text-sm font-normal text-[#60758a] leading-normal">
+										{service.description}
+									</p>
+								</div>
+							</div>
+						))
+					}
+				</div>
+
+				<!-- PROJECTS -->
+				<h2
+					class="text-[#111418] text-xl sm:text-[22px] font-bold px-4 pb-3 pt-5"
+				>
+					{t.projectsTitle}
+				</h2>
+				<div
+					class="flex overflow-x-auto snap-x scroll-smooth [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+				>
+					<div class="flex items-stretch gap-3 px-4 sm:px-6">
+						{
+							t.projects.map((project: any) => (
+								<div class="flex flex-col gap-4 rounded-lg min-w-[240px] snap-start max-w-full">
+									<div
+										class="aspect-video bg-cover bg-center rounded-lg"
+										style={`background-image: url("${project.image}")`}
+									/>
+									<div>
+										<p class="text-base font-medium text-[#111418]">
+											{project.title}
+										</p>
+										<p class="text-sm text-[#60758a]">
+											{project.description}
+										</p>
+									</div>
+								</div>
+							))
+						}
+					</div>
+				</div>
 			</div>
-		  </div>
-  
-		  <!-- SERVICES -->
-		  <h2 class="text-[#111418] text-xl sm:text-[22px] font-bold px-4 pb-3 pt-5">
-			{t.servicesTitle}
-		  </h2>
-		  <div class="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(140px,1fr))] gap-3 px-4 sm:px-6">
-			{t.services.map((service:any, i:number) => (
-			  <div class="flex flex-1 flex-col gap-3 p-4 rounded-lg border border-[#dbe0e6] bg-white">
-				<div class="text-[#111418]">
-				  <!-- Aquí puedes reutilizar los íconos SVG como antes -->
-				</div>
-				<div class="flex flex-col gap-1">
-				  <h2 class="text-base font-bold leading-tight">{service.title}</h2>
-				  <p class="text-sm font-normal text-[#60758a] leading-normal">{service.description}</p>
-				</div>
-			  </div>
-			))}
-		  </div>
-  
-		  <!-- PROJECTS -->
-		  <h2 class="text-[#111418] text-xl sm:text-[22px] font-bold px-4 pb-3 pt-5">
-			{t.projectsTitle}
-		  </h2>
-		  <div class="flex overflow-x-auto snap-x scroll-smooth [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-			<div class="flex items-stretch gap-3 px-4 sm:px-6">
-			  {t.projects.map((project:any) => (
-				<div class="flex flex-col gap-4 rounded-lg min-w-[240px] snap-start max-w-full">
-				  <div
-					class="aspect-video bg-cover bg-center rounded-lg"
-					style={`background-image: url("${project.image}")`}
-				  />
-				  <div>
-					<p class="text-base font-medium text-[#111418]">{project.title}</p>
-					<p class="text-sm text-[#60758a]">{project.description}</p>
-				  </div>
-				</div>
-			  ))}
-			</div>
-		  </div>
 		</div>
-	  </div>
+		<footer class="flex justify-center">
+			<div class="flex max-w-[960px] flex-1 flex-col">
+				<footer
+					class="flex flex-col gap-6 px-5 py-10 text-center @container"
+				>
+					<div
+						class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around"
+					>
+						<a
+							class="text-[#60758a] text-base font-normal leading-normal min-w-40"
+							href="#">{t.footer.privacy}</a
+						>
+						<a
+							class="text-[#60758a] text-base font-normal leading-normal min-w-40"
+							href="#">{t.footer.terms}</a
+						>
+					</div>
+					<div class="flex flex-wrap justify-center gap-4">
+						<a href="#">
+							<div
+								class="text-[#60758a]"
+								data-icon="TwitterLogo"
+								data-size="24px"
+								data-weight="regular"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24px"
+									height="24px"
+									fill="currentColor"
+									viewBox="0 0 256 256"
+								>
+									<path
+										d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
+									></path>
+								</svg>
+							</div>
+						</a>
+						<a href="#">
+							<div
+								class="text-[#60758a]"
+								data-icon="LinkedinLogo"
+								data-size="24px"
+								data-weight="regular"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24px"
+									height="24px"
+									fill="currentColor"
+									viewBox="0 0 256 256"
+								>
+									<path
+										d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"
+									></path>
+								</svg>
+							</div>
+						</a>
+						<a href="https://github.com/mapineda48">
+							<div
+								class="text-[#60758a]"
+								data-icon="GithubLogo"
+								data-size="24px"
+								data-weight="regular"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="24px"
+									height="24px"
+									fill="currentColor"
+									viewBox="0 0 256 256"
+								>
+									<path
+										d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
+									></path>
+								</svg>
+							</div>
+						</a>
+					</div>
+					<p
+						class="text-[#60758a] text-base font-normal leading-normal"
+					>
+						{t.footer.copyright}
+					</p>
+				</footer>
+			</div>
+		</footer>
 	</div>
-  </div>
-  
+</div>
