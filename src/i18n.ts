@@ -25,21 +25,29 @@ export const translations = {
         },
       ],
       projectsTitle: "Recent Projects",
-      project1: {
-        title: "Automated Deployment Pipeline",
-        description:
-          "Streamlined deployment process for a large-scale application, reducing deployment time by 60%.",
-      },
-      project2: {
-        title: "Cloud Migration for E-commerce Platform",
-        description:
-          "Migrated an e-commerce platform to a cloud-based infrastructure, improving scalability and reducing costs.",
-      },
-      project3: {
-        title: "Enhanced Testing Automation",
-        description:
-          "Implemented automated testing frameworks, resulting in a 40% reduction in bugs and faster release cycles.",
-      },
+      projects: [
+        {
+          title: "Automated Deployment Pipeline",
+          description:
+            "Streamlined deployment process for a large-scale application, reducing deployment time by 60%.",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuAeTTfepcz5ZLh1DuCUMs7JjMjLSi3V1Mq8do_H1gS8SRGltvouEEg1-kb5knnNtmo4Bd9kpsJwR3StrP9kgTSLCd4uNK9x1g7QtTDtUS1VIEHUkmklU3oPWz0m9eA3fJnmg1hqwxPUkj3GawMDuUN78Lprp04YI_VldL6owssc6jPsKHNYra11mi_zVMPl030cCtb81SFSvJcq_DGY7MgfjjyOMJ8y_Hq-4zW7NkZHOayxss9VpFCYZU_BsGfvRjGaMmrGQn1-PgcC"
+        },
+        {
+          title: "Cloud Migration for E-commerce Platform",
+          description:
+            "Migrated an e-commerce platform to a cloud-based infrastructure, improving scalability and reducing costs.",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuDVXkEDGPi1tZZqx-qIYBUoCTc6b_rsBSs8-jz_XfMnkn0m2BJz7RvG0CT_NGDW45ksomvRRG2-YJqrlENLLeErWSNnCxWVVMV636R_YnJOOEPBcvWP6tvGJS59AOhcsAW8Me2Y27B--fN2Sirc_u-3giC41ii96S1tRTIEGaBmqjKjBXDKfP_lcG0Vp9VGywP2COBLUHbFix2ftAI-il56VArdSSZ5Pa94nEobObyx_wOQF9gkdgoI7p_v9J98eV15BcAU8ry_y8mB"
+        },
+        {
+          title: "Enhanced Testing Automation",
+          description:
+            "Implemented automated testing frameworks, resulting in a 40% reduction in bugs and faster release cycles.",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuC9lYcX2rd1g-5wcTgmGEtw9GcLWGkBbYw7QxqVtaMVrD7GqB-CR9hh4lMDDZctsv3N2AjRVwDDlA3a6BJ2fE5iT58Tj79YdDGF5BRyCcxc7TRn6uPcWlCLeu86y7owhNac16c3M5Jbvg7Hpk_dVU9HPR64WXOWhnNa8ZkiSOiv2F0CW-OrNGANpANZkceI7Ao314vnB1SF0dXvGCkucNxTCi8sHXuzIEyXk7AlhVaTwtDh7lSPcF3WgmHIh83usUlJB7DEVaF2VgWj"
+        }
+      ],
       footer: {
         privacy: "Privacy Policy",
         terms: "Terms of Service",
@@ -132,21 +140,29 @@ export const translations = {
         },
       ],
       projectsTitle: "Proyectos Recientes",
-      project1: {
-        title: "Pipeline de Despliegue Automatizado",
-        description:
-          "Proceso de despliegue optimizado para una aplicación a gran escala, reduciendo el tiempo de entrega en un 60%.",
-      },
-      project2: {
-        title: "Migración a la Nube para Plataforma E-commerce",
-        description:
-          "Migración de una plataforma de comercio electrónico a infraestructura en la nube, mejorando la escalabilidad y reduciendo costos.",
-      },
-      project3: {
-        title: "Mejora de Automatización de Pruebas",
-        description:
-          "Implementación de marcos de pruebas automatizadas, logrando una reducción del 40% de errores y ciclos de lanzamiento más rápidos.",
-      },
+      projects:[
+        {
+          title: "Pipeline de Despliegue Automatizado",
+          description:
+            "Proceso de despliegue optimizado para una aplicación a gran escala, reduciendo el tiempo de entrega en un 60%.",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuAeTTfepcz5ZLh1DuCUMs7JjMjLSi3V1Mq8do_H1gS8SRGltvouEEg1-kb5knnNtmo4Bd9kpsJwR3StrP9kgTSLCd4uNK9x1g7QtTDtUS1VIEHUkmklU3oPWz0m9eA3fJnmg1hqwxPUkj3GawMDuUN78Lprp04YI_VldL6owssc6jPsKHNYra11mi_zVMPl030cCtb81SFSvJcq_DGY7MgfjjyOMJ8y_Hq-4zW7NkZHOayxss9VpFCYZU_BsGfvRjGaMmrGQn1-PgcC"
+        },
+        {
+          title: "Migración a la Nube para Plataforma E-commerce",
+          description:
+            "Migración de una plataforma de comercio electrónico a infraestructura en la nube, mejorando la escalabilidad y reduciendo costos.",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuDVXkEDGPi1tZZqx-qIYBUoCTc6b_rsBSs8-jz_XfMnkn0m2BJz7RvG0CT_NGDW45ksomvRRG2-YJqrlENLLeErWSNnCxWVVMV636R_YnJOOEPBcvWP6tvGJS59AOhcsAW8Me2Y27B--fN2Sirc_u-3giC41ii96S1tRTIEGaBmqjKjBXDKfP_lcG0Vp9VGywP2COBLUHbFix2ftAI-il56VArdSSZ5Pa94nEobObyx_wOQF9gkdgoI7p_v9J98eV15BcAU8ry_y8mB"
+        },
+        {
+          title: "Mejora de Automatización de Pruebas",
+          description:
+            "Implementación de marcos de pruebas automatizadas, logrando una reducción del 40% de errores y ciclos de lanzamiento más rápidos.",
+          image:
+            "https://lh3.googleusercontent.com/aida-public/AB6AXuC9lYcX2rd1g-5wcTgmGEtw9GcLWGkBbYw7QxqVtaMVrD7GqB-CR9hh4lMDDZctsv3N2AjRVwDDlA3a6BJ2fE5iT58Tj79YdDGF5BRyCcxc7TRn6uPcWlCLeu86y7owhNac16c3M5Jbvg7Hpk_dVU9HPR64WXOWhnNa8ZkiSOiv2F0CW-OrNGANpANZkceI7Ao314vnB1SF0dXvGCkucNxTCi8sHXuzIEyXk7AlhVaTwtDh7lSPcF3WgmHIh83usUlJB7DEVaF2VgWj"
+        }
+      ],
       footer: {
         privacy: "Política de Privacidad",
         terms: "Términos del Servicio",

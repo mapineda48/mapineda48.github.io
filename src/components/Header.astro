@@ -34,15 +34,11 @@ const { t, lang = "en" } = Astro.props;
             Miguel Pineda
         </a>
     </div>
-    <div class="flex flex-1 flex-wrap justify-end gap-2 sm:flex-nowrap sm:gap-8">
-        <div class="flex flex-wrap items-center gap-2 sm:flex-nowrap sm:gap-9">
+    <div class="flex flex-1 flex-wrap justify-end gap-1 sm:flex-nowrap sm:gap-8">
+        <div class="flex flex-wrap items-center gap-1 sm:flex-nowrap sm:gap-9">
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
                 href={lang === "en" ? "/about" : "/es/about"}>{t.nav.about}</a
-            >
-            <a
-                class="text-[#121416] text-sm font-medium leading-normal"
-                href="#">{t.nav.projects}</a
             >
             <a
                 class="text-[#121416] text-sm font-medium leading-normal"
