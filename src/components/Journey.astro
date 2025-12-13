@@ -1,0 +1,52 @@
+---
+interface JourneyStep {
+  role: string;
+  desc: string;
+}
+
+interface Props {
+  title: string;
+  steps: JourneyStep[];
+}
+
+const { title, steps } = Astro.props;
+---
+
+<section id="journey" class="py-20 bg-slate-50 dark:bg-slate-900">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-center text-slate-800 dark:text-white mb-12">
+      {title}
+    </h2>
+    <div class="relative max-w-4xl mx-auto">
+      <!-- Vertical Line -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-blue-500/20 dark:bg-blue-400/20 rounded-full"></div>
+
+      <div class="space-y-12">
+        {steps.map((step, index) => (
+          <div class={`relative flex items-center justify-between ${index % 2 === 0 ? 'flex-row-reverse' : ''}`}>
+
+            {/* Content Box */}
+            <div class="w-5/12">
+              <div class="p-6 bg-white dark:bg-slate-800 rounded-lg shadow-md border border-slate-100 dark:border-slate-700 hover:shadow-lg transition-shadow duration-300">
+                <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400 mb-2">
+                  {step.role}
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+            </div>
+
+            {/* Center Dot */}
+            <div class="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-blue-500 border-4 border-white dark:border-slate-900 shadow-lg z-10 flex items-center justify-center">
+                <div class="w-2 h-2 bg-white rounded-full"></div>
+            </div>
+
+            {/* Empty Space for alignment */}
+            <div class="w-5/12"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
