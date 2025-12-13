@@ -1,15 +1,59 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Welcome from '../components/Welcome.astro';
+import About from '../components/About.astro';
+import Journey from '../components/Journey.astro';
+import Contact from '../components/Contact.astro';
 import { translations } from '../i18n';
 
-const lang = 'en';
+const lang = 'es'; // Set default to Spanish as requested
 const t = translations[lang];
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout lang={lang}>
-        <Welcome t={{ nav: t.nav, ...t.welcome }} lang={lang} />
+	<Welcome
+		nav={t.nav}
+		heroTitle={t.welcome.heroTitle}
+		heroSubtitle={t.welcome.heroSubtitle}
+		buttonExplore={t.welcome.buttonExplore}
+		servicesTitle={t.welcome.servicesTitle}
+		services={t.welcome.services}
+		projectsTitle={t.welcome.projectsTitle}
+		projects={t.welcome.projects}
+		footer={t.welcome.footer}
+	/>
+
+	<About
+		profileName={t.about.profileName}
+		role={t.about.role}
+		aboutTitle={t.about.aboutTitle}
+		aboutDesc1={t.about.aboutDesc1}
+		skillsTitle={t.about.skillsTitle}
+		skills={t.about.skills}
+		toolsTitle={t.about.toolsTitle}
+		tools={t.about.tools}
+		methodologiesTitle={t.about.methodologiesTitle}
+		methodologies={t.about.methodologies}
+	/>
+
+	<Journey
+		title={t.about.journeyTitle}
+		steps={t.about.journey}
+	/>
+
+	<Contact
+		title={t.contact.title}
+		desc={t.contact.desc}
+		nameLabel={t.contact.nameLabel}
+		namePlaceholder={t.contact.namePlaceholder}
+		emailLabel={t.contact.emailLabel}
+		emailPlaceholder={t.contact.emailPlaceholder}
+		messageLabel={t.contact.messageLabel}
+		messagePlaceholder={t.contact.messagePlaceholder}
+		sendButton={t.contact.sendButton}
+		infoTitle={t.contact.infoTitle}
+		infoEmail={t.contact.infoEmail}
+		infoPhone={t.contact.infoPhone}
+		socials={t.contact.socials}
+	/>
 </Layout>

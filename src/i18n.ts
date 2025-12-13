@@ -1,54 +1,51 @@
 export const translations = {
   en: {
-    nav: { about: "About", projects: "Projects", contact: "Contact" },
+    nav: { about: "Journey", philosophy: "Philosophy", services: "Services", contact: "Contact" },
     welcome: {
-      heroTitle: "Streamline Your Operations with Expert DevOps Solutions",
+      heroTitle: "AI-Enhanced Software Engineering: Precision, Scale, & Innovation",
       heroSubtitle:
-        "I specialize in optimizing software development and deployment processes, ensuring seamless integration and efficient workflows. Let's transform your business with cutting-edge DevOps practices.",
-      buttonExplore: "Explore Services",
-      servicesTitle: "My Services",
+        "From Web Development to Backend Architecture, mastering DevOps, and now leveraging Artificial Intelligence. I optimize workflows to deliver superior quality products with maximum efficiency.",
+      buttonExplore: "Discover My Journey",
+      servicesTitle: "Strategic Capabilities",
       services: [
         {
-          title: "Infrastructure Automation",
+          title: "Full-Stack & Backend Architecture",
           description:
-            "Automate your infrastructure management for scalability and reliability.",
-          iconPath: "M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"
+            "Deep experience in building robust web applications and scalable backend systems, forming the foundation of my engineering expertise.",
+          iconPath: "M3,12l7-7v4h4v6H10v4l-7-7Zm18,0l-7,7v-4h-4v-6h4v-4l7,7Z"
         },
         {
-          title: "Continuous Integration/Continuous Deployment (CI/CD)",
+          title: "DevOps & Infrastructure Automation",
           description:
-            "Implement CI/CD pipelines for faster and more reliable software releases.",
-          iconPath: "M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"
+            "Expertise in CI/CD, cloud orchestration, and infrastructure as code to ensure reliability, speed, and seamless operations.",
+          iconPath: "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Zm-1-5h2v2h-2Zm0-8h2v6h-2Z"
         },
         {
-          title: "Cloud Solutions",
+          title: "Artificial Intelligence Integration",
           description:
-            "Leverage cloud platforms to enhance your application's performance and availability.",
-          iconPath: "M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.11A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,72,72Z"
+            "Utilizing advanced AI tools to optimize development cycles, enhance code quality, and deliver cutting-edge solutions in record time.",
+          iconPath: "M12,2L2,22h20L12,2Zm0,4l7,14H5L12,6Z"
         },
       ],
-      projectsTitle: "Recent Projects",
+      projectsTitle: "Featured Engagements",
       projects: [
         {
-          title: "Automated Deployment Pipeline",
+          title: "AI-Driven Workflow Optimization",
           description:
-            "Streamlined deployment process for a large-scale application, reducing deployment time by 60%.",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAeTTfepcz5ZLh1DuCUMs7JjMjLSi3V1Mq8do_H1gS8SRGltvouEEg1-kb5knnNtmo4Bd9kpsJwR3StrP9kgTSLCd4uNK9x1g7QtTDtUS1VIEHUkmklU3oPWz0m9eA3fJnmg1hqwxPUkj3GawMDuUN78Lprp04YI_VldL6owssc6jPsKHNYra11mi_zVMPl030cCtb81SFSvJcq_DGY7MgfjjyOMJ8y_Hq-4zW7NkZHOayxss9VpFCYZU_BsGfvRjGaMmrGQn1-PgcC"
+            "Integrated LLM-based tools into the development pipeline, reducing code review times by 50% and improving test coverage.",
+          image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
         },
         {
-          title: "Cloud Migration for E-commerce Platform",
+          title: "Cloud-Native Infrastructure Migration",
           description:
-            "Migrated an e-commerce platform to a cloud-based infrastructure, improving scalability and reducing costs.",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDVXkEDGPi1tZZqx-qIYBUoCTc6b_rsBSs8-jz_XfMnkn0m2BJz7RvG0CT_NGDW45ksomvRRG2-YJqrlENLLeErWSNnCxWVVMV636R_YnJOOEPBcvWP6tvGJS59AOhcsAW8Me2Y27B--fN2Sirc_u-3giC41ii96S1tRTIEGaBmqjKjBXDKfP_lcG0Vp9VGywP2COBLUHbFix2ftAI-il56VArdSSZ5Pa94nEobObyx_wOQF9gkdgoI7p_v9J98eV15BcAU8ry_y8mB"
+            "Led the transition of monolithic legacy systems to microservices on Kubernetes, enhancing scalability and fault tolerance.",
+          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
         },
         {
-          title: "Enhanced Testing Automation",
+          title: "High-Performance Backend Systems",
           description:
-            "Implemented automated testing frameworks, resulting in a 40% reduction in bugs and faster release cycles.",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuC9lYcX2rd1g-5wcTgmGEtw9GcLWGkBbYw7QxqVtaMVrD7GqB-CR9hh4lMDDZctsv3N2AjRVwDDlA3a6BJ2fE5iT58Tj79YdDGF5BRyCcxc7TRn6uPcWlCLeu86y7owhNac16c3M5Jbvg7Hpk_dVU9HPR64WXOWhnNa8ZkiSOiv2F0CW-OrNGANpANZkceI7Ao314vnB1SF0dXvGCkucNxTCi8sHXuzIEyXk7AlhVaTwtDh7lSPcF3WgmHIh83usUlJB7DEVaF2VgWj"
+            "Architected low-latency API services serving millions of requests, optimizing database interactions and caching strategies.",
+          image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?auto=format&fit=crop&q=80&w=800"
         }
       ],
       footer: {
@@ -59,116 +56,125 @@ export const translations = {
     },
     about: {
       profileName: "Miguel Angel Pineda Vega",
-      role: "DevOps Developer",
+      role: "AI-Enhanced Senior Engineer",
       profileDesc:
-        "Experienced DevOps professional with a passion for automation and efficiency.",
-      aboutTitle: "About Me",
+        "A seasoned engineer evolving through the layers of technology: Web, Backend, DevOps, and AI.",
+      aboutTitle: "Professional Evolution",
       aboutDesc1:
-        "I am a seasoned DevOps engineer with over 5 years of experience in automating and streamlining software development and deployment processes. My expertise lies in building scalable and resilient infrastructure, implementing CI/CD pipelines, and fostering a collaborative DevOps culture. I am dedicated to continuous learning and staying abreast of the latest technologies to deliver innovative solutions.",
-      skillsTitle: "Technical Skills",
-      skills: [
-        "Cloud Computing",
-        "Infrastructure as Code",
-        "CI/CD",
-        "Containerization",
-        "Orchestration",
-        "Monitoring",
-        "Logging",
-        "Scripting",
-        "Configuration Management",
-        "Version Control",
+        "My career is a testament to continuous evolution. I began as a Web Developer, mastering the user interface. I then progressed to Backend Development, engineering the logic that powers systems. Recognizing the need for efficiency, I transitioned into DevOps, automating the lifecycle of software. Now, I have fully embraced Artificial Intelligence to act as a force multiplier, allowing me to optimize my time and deliver products of the highest caliber.",
+      journeyTitle: "The Journey",
+      journey: [
+        {
+            role: "Web Developer",
+            desc: "The genesis. Mastering HTML, CSS, JavaScript, and modern frameworks to craft engaging user experiences."
+        },
+        {
+            role: "Backend Developer",
+            desc: "The deepening. designing databases, APIs, and server-side logic to support complex applications."
+        },
+        {
+            role: "DevOps Engineer",
+            desc: "The scaling. Automating deployments, managing cloud infrastructure, and ensuring reliability."
+        },
+        {
+            role: "AI-Enhanced Engineer",
+            desc: "The optimization. Leveraging AI to accelerate development, improve quality assurance, and solve problems creatively."
+        }
       ],
-      toolsTitle: "Tools",
+      skillsTitle: "Core Competencies",
+      skills: [
+        "AI-Assisted Development",
+        "System Architecture",
+        "DevOps & CI/CD",
+        "Cloud Computing (AWS/GCP/Azure)",
+        "Containerization (Docker/K8s)",
+        "Full Stack Development",
+        "Infrastructure as Code",
+        "Performance Optimization"
+      ],
+      toolsTitle: "Technology Stack",
       tools: [
-        "AWS",
-        "Azure",
-        "GCP",
-        "Docker",
+        "OpenAI API / LLMs",
         "Kubernetes",
-        "Jenkins",
-        "GitLab CI",
         "Terraform",
-        "Ansible",
-        "Prometheus",
-        "Grafana",
+        "Python / Go / Node.js",
+        "React / Astro",
+        "Docker",
+        "Linux",
         "Git",
+        "Jenkins / GitHub Actions"
       ],
       methodologiesTitle: "Methodologies",
-      methodologies: ["Agile", "Scrum", "Kanban", "DevOps"],
+      methodologies: ["Agile/Scrum", "DevOps Culture", "AI-First Approach", "Clean Architecture"],
     },
     contact: {
-      title: "Get in Touch",
+      title: "Initiate Collaboration",
       desc:
-        "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!",
-      nameLabel: "Your Name",
-      namePlaceholder: "Enter your name",
-      emailLabel: "Email Address",
-      emailPlaceholder: "Enter your email",
-      messageLabel: "Your Message",
-      messagePlaceholder: "How can I help you?",
-      sendButton: "Send Message",
-      infoTitle: "Contact Information",
-      infoEmail: "Email: contact@devopspro.com",
-      infoPhone: "Phone: (555) 123-4567",
+        "I am available for high-impact projects that require a blend of architectural expertise, operational excellence, and innovative AI application. Let us discuss how I can bring value to your objectives.",
+      nameLabel: "Full Name",
+      namePlaceholder: "Enter your full name",
+      emailLabel: "Professional Email",
+      emailPlaceholder: "name@company.com",
+      messageLabel: "Project Details",
+      messagePlaceholder: "Describe your requirements and goals...",
+      sendButton: "Send Inquiry",
+      infoTitle: "Contact Details",
+      infoEmail: "Email: miguel@example.com",
+      infoPhone: "Phone: +1 (555) 123-4567",
       socials: {
-        twitter: "Twitter",
+        twitter: "X / Twitter",
         linkedin: "LinkedIn",
         github: "GitHub",
       },
     },
   },
   es: {
-    nav: { about: "Acerca de", projects: "Proyectos", contact: "Contacto" },
+    nav: { about: "Trayectoria", philosophy: "Filosofía", services: "Servicios", contact: "Contacto" },
     welcome: {
-      heroTitle: "Optimiza tus operaciones con soluciones DevOps expertas",
+      heroTitle: "Ingeniería de Software Potenciada por IA: Precisión, Escala e Innovación",
       heroSubtitle:
-        "Me especializo en optimizar los procesos de desarrollo y despliegue de software, garantizando integraciones fluidas y flujos de trabajo eficientes. Transformemos tu negocio con prácticas DevOps de vanguardia.",
-      buttonExplore: "Explorar servicios",
-      servicesTitle: "Mis Servicios",
+        "Desde el Desarrollo Web a la Arquitectura Backend, dominando DevOps y ahora adoptando la Inteligencia Artificial. Optimizo flujos de trabajo para entregar productos de calidad superior con la máxima eficiencia.",
+      buttonExplore: "Descubre mi Trayectoria",
+      servicesTitle: "Capacidades Estratégicas",
       services: [
         {
-          title: "Automatización de Infraestructura",
+          title: "Arquitectura Full-Stack & Backend",
           description:
-            "Automatiza la gestión de tu infraestructura para lograr escalabilidad y confiabilidad.",
-          iconPath: "M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"
-
+            "Amplia experiencia en la construcción de aplicaciones web robustas y sistemas backend escalables, formando la base de mi experiencia en ingeniería.",
+          iconPath: "M3,12l7-7v4h4v6H10v4l-7-7Zm18,0l-7,7v-4h-4v-6h4v-4l7,7Z"
         },
         {
-          title: "Integración Continua/Entrega Continua (CI/CD)",
+          title: "DevOps y Automatización de Infraestructura",
           description:
-            "Implementa pipelines de CI/CD para lanzamientos de software más rápidos y confiables.",
-          iconPath: "M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"
-
+            "Expertise en CI/CD, orquestación en la nube e infraestructura como código para garantizar confiabilidad, velocidad y operaciones fluidas.",
+          iconPath: "M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Zm-1-5h2v2h-2Zm0-8h2v6h-2Z"
         },
         {
-          title: "Soluciones en la Nube",
+          title: "Integración de Inteligencia Artificial",
           description:
-            "Aprovecha plataformas en la nube para mejorar el rendimiento y la disponibilidad de tus aplicaciones.",
-          iconPath: "M160,40A88.09,88.09,0,0,0,81.29,88.67,64,64,0,1,0,72,216h88a88,88,0,0,0,0-176Zm0,160H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.11A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,72,72Z"
+            "Utilización de herramientas avanzadas de IA para optimizar ciclos de desarrollo, mejorar la calidad del código y entregar soluciones de vanguardia en tiempo récord.",
+          iconPath: "M12,2L2,22h20L12,2Zm0,4l7,14H5L12,6Z"
         },
       ],
-      projectsTitle: "Proyectos Recientes",
+      projectsTitle: "Compromisos Destacados",
       projects: [
         {
-          title: "Pipeline de Despliegue Automatizado",
+          title: "Optimización de Flujo de Trabajo con IA",
           description:
-            "Proceso de despliegue optimizado para una aplicación a gran escala, reduciendo el tiempo de entrega en un 60%.",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuAeTTfepcz5ZLh1DuCUMs7JjMjLSi3V1Mq8do_H1gS8SRGltvouEEg1-kb5knnNtmo4Bd9kpsJwR3StrP9kgTSLCd4uNK9x1g7QtTDtUS1VIEHUkmklU3oPWz0m9eA3fJnmg1hqwxPUkj3GawMDuUN78Lprp04YI_VldL6owssc6jPsKHNYra11mi_zVMPl030cCtb81SFSvJcq_DGY7MgfjjyOMJ8y_Hq-4zW7NkZHOayxss9VpFCYZU_BsGfvRjGaMmrGQn1-PgcC"
+            "Integración de herramientas basadas en LLM en el pipeline de desarrollo, reduciendo tiempos de revisión de código en un 50% y mejorando la cobertura de pruebas.",
+          image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800"
         },
         {
-          title: "Migración a la Nube para Plataforma E-commerce",
+          title: "Migración de Infraestructura Cloud-Native",
           description:
-            "Migración de una plataforma de comercio electrónico a infraestructura en la nube, mejorando la escalabilidad y reduciendo costos.",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuDVXkEDGPi1tZZqx-qIYBUoCTc6b_rsBSs8-jz_XfMnkn0m2BJz7RvG0CT_NGDW45ksomvRRG2-YJqrlENLLeErWSNnCxWVVMV636R_YnJOOEPBcvWP6tvGJS59AOhcsAW8Me2Y27B--fN2Sirc_u-3giC41ii96S1tRTIEGaBmqjKjBXDKfP_lcG0Vp9VGywP2COBLUHbFix2ftAI-il56VArdSSZ5Pa94nEobObyx_wOQF9gkdgoI7p_v9J98eV15BcAU8ry_y8mB"
+            "Liderazgo en la transición de sistemas heredados monolíticos a microservicios en Kubernetes, mejorando la escalabilidad y tolerancia a fallos.",
+          image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800"
         },
         {
-          title: "Mejora de Automatización de Pruebas",
+          title: "Sistemas Backend de Alto Rendimiento",
           description:
-            "Implementación de marcos de pruebas automatizadas, logrando una reducción del 40% de errores y ciclos de lanzamiento más rápidos.",
-          image:
-            "https://lh3.googleusercontent.com/aida-public/AB6AXuC9lYcX2rd1g-5wcTgmGEtw9GcLWGkBbYw7QxqVtaMVrD7GqB-CR9hh4lMDDZctsv3N2AjRVwDDlA3a6BJ2fE5iT58Tj79YdDGF5BRyCcxc7TRn6uPcWlCLeu86y7owhNac16c3M5Jbvg7Hpk_dVU9HPR64WXOWhnNa8ZkiSOiv2F0CW-OrNGANpANZkceI7Ao314vnB1SF0dXvGCkucNxTCi8sHXuzIEyXk7AlhVaTwtDh7lSPcF3WgmHIh83usUlJB7DEVaF2VgWj"
+            "Arquitectura de servicios API de baja latencia sirviendo millones de solicitudes, optimizando interacciones de base de datos y estrategias de caché.",
+          image: "https://images.unsplash.com/photo-1558494949-ef526b0042a0?auto=format&fit=crop&q=80&w=800"
         }
       ],
       footer: {
@@ -179,59 +185,73 @@ export const translations = {
     },
     about: {
       profileName: "Miguel Angel Pineda Vega",
-      role: "Desarrollador DevOps",
+      role: "Ingeniero Senior Potenciado por IA",
       profileDesc:
-        "Profesional de DevOps con experiencia, apasionado por la automatización y la eficiencia.",
-      aboutTitle: "Sobre Mí",
+        "Un ingeniero experimentado evolucionando a través de las capas de la tecnología: Web, Backend, DevOps e IA.",
+      aboutTitle: "Evolución Profesional",
       aboutDesc1:
-        "Soy un ingeniero DevOps con más de 5 años de experiencia automatizando y optimizando procesos de desarrollo y despliegue de software. Mi especialidad es construir infraestructura escalable y resistente, implementar pipelines de CI/CD y fomentar una cultura DevOps colaborativa. Estoy comprometido con el aprendizaje continuo y con mantenerme al día con las últimas tecnologías para ofrecer soluciones innovadoras.",
-      skillsTitle: "Habilidades Técnicas",
-      skills: [
-        "Computación en la Nube",
-        "Infraestructura como Código",
-        "CI/CD",
-        "Contenerización",
-        "Orquestación",
-        "Monitoreo",
-        "Registro",
-        "Scripting",
-        "Gestión de Configuración",
-        "Control de Versiones",
+        "Mi carrera es un testimonio de evolución continua. Comencé como Desarrollador Web, dominando la interfaz de usuario. Luego progresé al Desarrollo Backend, diseñando la lógica que impulsa los sistemas. Reconociendo la necesidad de eficiencia, transicioné hacia DevOps, automatizando el ciclo de vida del software. Ahora, he adoptado completamente la Inteligencia Artificial como un multiplicador de fuerza, permitiéndome optimizar mi tiempo y entregar productos del más alto calibre.",
+      journeyTitle: "La Trayectoria",
+      journey: [
+        {
+            role: "Desarrollador Web",
+            desc: "El génesis. Dominando HTML, CSS, JavaScript y frameworks modernos para crear experiencias de usuario atractivas."
+        },
+        {
+            role: "Desarrollador Backend",
+            desc: "La profundización. Diseñando bases de datos, APIs y lógica del lado del servidor para soportar aplicaciones complejas."
+        },
+        {
+            role: "Ingeniero DevOps",
+            desc: "El escalado. Automatizando despliegues, gestionando infraestructura en la nube y asegurando la fiabilidad."
+        },
+        {
+            role: "Ingeniero Potenciado por IA",
+            desc: "La optimización. Aprovechando la IA para acelerar el desarrollo, mejorar el aseguramiento de calidad y resolver problemas creativamente."
+        }
       ],
-      toolsTitle: "Herramientas",
+      skillsTitle: "Competencias Clave",
+      skills: [
+        "Desarrollo Asistido por IA",
+        "Arquitectura de Sistemas",
+        "DevOps y CI/CD",
+        "Computación en la Nube (AWS/GCP/Azure)",
+        "Contenerización (Docker/K8s)",
+        "Desarrollo Full Stack",
+        "Infraestructura como Código",
+        "Optimización de Rendimiento"
+      ],
+      toolsTitle: "Stack Tecnológico",
       tools: [
-        "AWS",
-        "Azure",
-        "GCP",
-        "Docker",
+        "OpenAI API / LLMs",
         "Kubernetes",
-        "Jenkins",
-        "GitLab CI",
         "Terraform",
-        "Ansible",
-        "Prometheus",
-        "Grafana",
+        "Python / Go / Node.js",
+        "React / Astro",
+        "Docker",
+        "Linux",
         "Git",
+        "Jenkins / GitHub Actions"
       ],
       methodologiesTitle: "Metodologías",
-      methodologies: ["Ágil", "Scrum", "Kanban", "DevOps"],
+      methodologies: ["Agile/Scrum", "Cultura DevOps", "Enfoque AI-First", "Arquitectura Limpia"],
     },
     contact: {
-      title: "Ponte en Contacto",
+      title: "Iniciar Colaboración",
       desc:
-        "Siempre estoy abierto a hablar sobre nuevos proyectos, ideas creativas u oportunidades para ser parte de tus visiones. ¡No dudes en contactarme!",
-      nameLabel: "Tu Nombre",
-      namePlaceholder: "Ingresa tu nombre",
-      emailLabel: "Correo Electrónico",
-      emailPlaceholder: "Ingresa tu correo electrónico",
-      messageLabel: "Tu Mensaje",
-      messagePlaceholder: "¿Cómo puedo ayudarte?",
-      sendButton: "Enviar Mensaje",
-      infoTitle: "Información de Contacto",
-      infoEmail: "Correo: contact@devopspro.com",
-      infoPhone: "Teléfono: (555) 123-4567",
+        "Estoy disponible para proyectos de alto impacto que requieran una mezcla de experiencia arquitectónica, excelencia operativa y aplicación innovadora de IA. Discutamos cómo puedo aportar valor a sus objetivos.",
+      nameLabel: "Nombre Completo",
+      namePlaceholder: "Ingrese su nombre completo",
+      emailLabel: "Correo Profesional",
+      emailPlaceholder: "nombre@empresa.com",
+      messageLabel: "Detalles del Proyecto",
+      messagePlaceholder: "Describa sus requerimientos y objetivos...",
+      sendButton: "Enviar Consulta",
+      infoTitle: "Datos de Contacto",
+      infoEmail: "Correo: miguel@ejemplo.com",
+      infoPhone: "Teléfono: +1 (555) 123-4567",
       socials: {
-        twitter: "Twitter",
+        twitter: "X / Twitter",
         linkedin: "LinkedIn",
         github: "GitHub",
       },
