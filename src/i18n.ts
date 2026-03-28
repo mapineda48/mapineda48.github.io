@@ -97,6 +97,11 @@ What sets me apart is not just technical knowledge, but the ability to understan
         availability: "Available for projects"
       }
     },
+    theme: {
+      toggle: "Toggle theme",
+      dark: "Dark mode",
+      light: "Light mode"
+    },
     footer: {
       copyright: "© 2025 Miguel Angel Pineda. All rights reserved.",
       tagline: "Building the future, one line of code at a time."
@@ -199,6 +204,11 @@ Lo que me distingue no es solo el conocimiento técnico, sino la capacidad de en
         location: "Colombia",
         availability: "Disponible para proyectos"
       }
+    },
+    theme: {
+      toggle: "Alternar tema",
+      dark: "Modo oscuro",
+      light: "Modo claro"
     },
     footer: {
       copyright: "© 2025 Miguel Angel Pineda. Todos los derechos reservados.",

@@ -7,7 +7,7 @@ interface Props {
   description?: string;
 }
 
-const { 
+const {
   lang = 'en',
   title = 'Miguel Angel Pineda | Software Developer & Tech Solutions Architect',
   description = 'Transforming businesses through innovative technology solutions. Expert in Frontend, Backend, DevOps, and AI-powered solutions.'
@@ -21,24 +21,33 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Miguel Angel Pineda Vega" />
-    
+
+    <!-- Theme detection (runs before paint to prevent flash) -->
+    <script is:inline>
+      (function() {
+        var t = localStorage.getItem('theme') ||
+          (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
+        document.documentElement.dataset.theme = t;
+      })();
+    </script>
+
     <!-- Open Graph / Social -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/me.png" />
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
     <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
-    
+
     <title>{title}</title>
   </head>
   <body>

@@ -1,0 +1,182 @@
+---
+import ThemeToggle from './ThemeToggle.tsx';
+
+interface Props {
+  t: any;
+  lang: string;
+}
+
+const { t, lang } = Astro.props;
+const otherLang = lang === 'en' ? 'es' : 'en';
+const langSwitch = lang === 'en' ? '/es/' : '/';
+---
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href={lang === 'en' ? '/' : '/es/'} class="nav-logo">
+      MAP<span class="text-accent">.</span>
+    </a>
+
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="nav-menu" id="nav-menu">
+      <a href="#about" class="nav-link">{t.nav.about}</a>
+      <a href="#services" class="nav-link">{t.nav.services}</a>
+      <a href="#journey" class="nav-link">{t.nav.journey}</a>
+      <a href="#contact" class="nav-link">{t.nav.contact}</a>
+      <a href={langSwitch} class="nav-lang">{otherLang.toUpperCase()}</a>
+      <ThemeToggle client:load />
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 0;
+    background: var(--navbar-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, padding 0.3s ease;
+  }
+
+  .navbar.scrolled {
+    border-bottom-color: var(--border);
+    padding: 0.6rem 0;
+  }
+
+  .nav-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.15s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-lang {
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    transition: all 0.15s ease;
+  }
+
+  .nav-lang:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 101;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.2s ease;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: flex;
+    }
+
+    .nav-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--surface-0);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      z-index: 100;
+      display: none;
+    }
+
+    .nav-menu.active {
+      display: flex;
+    }
+
+    .nav-menu .nav-link {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--text-primary);
+    }
+  }
+</style>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  const toggle = document.getElementById('nav-toggle');
+  const menu = document.getElementById('nav-menu');
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    menu?.classList.toggle('active');
+  });
+
+  menu?.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle?.classList.remove('active');
+      menu.classList.remove('active');
+    });
+  });
+</script>

@@ -1,0 +1,45 @@
+---
+interface Props {
+  t: any;
+}
+
+const { t } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-copyright">{t.footer.copyright}</p>
+    <p class="footer-tagline">{t.footer.tagline}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    background: var(--surface-1);
+  }
+
+  .footer-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .footer-copyright,
+  .footer-tagline {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .footer-tagline {
+    font-style: italic;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+  }
+</style>

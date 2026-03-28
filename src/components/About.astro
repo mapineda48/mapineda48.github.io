@@ -1,0 +1,130 @@
+---
+interface Props {
+  t: any;
+}
+
+const { t } = Astro.props;
+const paragraphs = t.about.description.split('\n\n');
+---
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div data-reveal>
+      <p class="section-label">{t.about.sectionTitle}</p>
+      <h2 class="section-heading">{t.about.headline}</h2>
+    </div>
+
+    <p class="about-lead" data-reveal data-reveal-delay="0.1">{paragraphs[0]}</p>
+
+    <div class="about-body" data-reveal data-reveal-delay="0.15">
+      {paragraphs.slice(1).map((p: string) => (
+        <p>{p}</p>
+      ))}
+    </div>
+
+    <div class="about-stats" data-reveal data-reveal-delay="0.2">
+      {t.about.stats.map((stat: { number: string; label: string }, i: number) => (
+        <div class:list={["stat", i > 0 && "stat-bordered"]}>
+          <span class="stat-number">{stat.number}</span>
+          <span class="stat-label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    padding: var(--section-padding) 0;
+    background: var(--surface-1);
+  }
+
+  .about-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-heading {
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+  }
+
+  .about-lead {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 3vw, 1.75rem);
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    max-width: 800px;
+  }
+
+  .about-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .about-body p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  .about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+
+  .stat {
+    flex: 1;
+    min-width: 140px;
+    padding: 0.5rem 2rem 0.5rem 0;
+  }
+
+  .stat-bordered {
+    border-left: 1px solid var(--border);
+    padding-left: 2rem;
+  }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    color: var(--accent);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .about-stats {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .stat-bordered {
+      border-left: none;
+      border-top: 1px solid var(--border);
+      padding-left: 0;
+      padding-top: 1.5rem;
+    }
+  }
+</style>

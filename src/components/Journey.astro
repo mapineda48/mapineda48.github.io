@@ -1,0 +1,97 @@
+---
+interface Props {
+  t: any;
+}
+
+const { t } = Astro.props;
+---
+
+<section class="journey" id="journey">
+  <div class="journey-inner">
+    <div data-reveal>
+      <p class="section-label">{t.journey.sectionTitle}</p>
+      <h2 class="section-heading">{t.journey.headline}</h2>
+    </div>
+
+    <div class="timeline">
+      {t.journey.milestones.map((milestone: { year: string; title: string; description: string }, index: number) => (
+        <div class="timeline-card" data-reveal data-reveal-delay={String(index * 0.1)}>
+          <span class="timeline-year">{milestone.year}</span>
+          <div class="timeline-body">
+            <h3 class="timeline-title">{milestone.title}</h3>
+            <p class="timeline-desc">{milestone.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .journey {
+    padding: var(--section-padding) 0;
+    background: var(--surface-1);
+  }
+
+  .journey-inner {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-heading {
+    color: var(--text-primary);
+    margin-bottom: 2.5rem;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .timeline-card {
+    border-top: 2px solid var(--accent);
+    padding-top: 1.25rem;
+  }
+
+  .timeline-year {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+  }
+
+  .timeline-title {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .timeline {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>
