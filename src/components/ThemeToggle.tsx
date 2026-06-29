@@ -19,13 +19,13 @@ export default function ThemeToggle() {
     localStorage.setItem("theme", next);
   };
 
-  if (!mounted) return <div style={{ width: 40, height: 40 }} />;
+  if (!mounted) return <div style={{ width: 36, height: 36 }} />;
 
   return (
     <button
       onClick={toggle}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="relative flex items-center justify-center w-10 h-10 rounded-lg border border-border hover:border-border-hover transition-colors cursor-pointer bg-transparent"
+      className="relative flex items-center justify-center w-9 h-9 rounded-full border border-border hover:border-accent text-text-secondary hover:text-accent transition-colors cursor-pointer bg-transparent"
     >
       <AnimatePresence mode="wait" initial={false}>
         {theme === "dark" ? (

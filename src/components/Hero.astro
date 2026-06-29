@@ -3,36 +3,66 @@ interface Props {
   t: any;
   lang: string;
 }
+const { t } = Astro.props;
 
-const { t, lang } = Astro.props;
+// Split the statement so we can accent the closing fragment.
+const [stmtMain, stmtTail] = (() => {
+  const s: string = t.hero.statement;
+  const i = s.indexOf('—');
+  return i > -1 ? [s.slice(0, i).trim(), s.slice(i + 1).trim()] : [s, ''];
+})();
 ---
 
-<section class="hero" id="hero">
-  <div class="hero-inner">
-    <div class="hero-content" data-reveal>
-      <p class="hero-overline">{t.hero.greeting}</p>
-      <h1 class="hero-name">{t.hero.name}</h1>
-      <p class="hero-title">{t.hero.title}</p>
-      <p class="hero-subtitle">{t.hero.subtitle}</p>
-      <a href="#contact" class="hero-cta">
-        {t.hero.cta}
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
+<header class="hero" id="top">
+  <div class="wrap">
+    <!-- meta status row -->
+    <div class="status mono" data-reveal>
+      <span class="dot" aria-hidden="true"></span>
+      <span>{t.hero.available}</span>
+      <span class="sep">/</span>
+      <span>{t.hero.location}</span>
+      <span class="sep">/</span>
+      <span id="clock" class="clock">—:—:—</span>
     </div>
 
-    <div class="hero-photo" data-reveal data-reveal-delay="0.2">
-      <div class="photo-accent"></div>
-      <img src="/me.png" alt="Miguel Angel Pineda" />
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p class="role mono" data-reveal>{t.hero.role}</p>
+
+        <h1 class="statement serif" data-reveal data-reveal-delay="0.05">
+          {stmtMain}
+          {stmtTail && <span class="tail"><span class="dash">—</span> {stmtTail}</span>}
+        </h1>
+
+        <div class="hero-foot" data-reveal data-reveal-delay="0.12">
+          <p class="intro">{t.hero.intro}</p>
+          <div class="actions">
+            <a href={`mailto:${t.contact.email}`} class="btn-primary">
+              {t.hero.ctaPrimary}
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#about" class="btn-ghost">{t.hero.ctaSecondary}</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card" data-reveal data-reveal-delay="0.18">
+        <div class="portrait">
+          <img src="/me.png" alt={t.hero.name} loading="eager" />
+        </div>
+        <div class="card-meta">
+          <p class="card-name">{t.hero.name}</p>
+          <p class="card-role mono">{t.hero.roleLine}</p>
+        </div>
+      </aside>
     </div>
   </div>
 
-  <a href="#about" class="scroll-hint">
-    <span>{t.hero.scrollDown}</span>
-    <div class="scroll-line"><div class="scroll-dot"></div></div>
+  <a href="#about" class="scroll-cue mono" aria-label="Scroll">
+    <span>scroll</span>
+    <span class="cue-line"><span class="cue-dot"></span></span>
   </a>
-</section>
+</header>
 
 <style>
   .hero {
@@ -40,148 +70,159 @@ const { t, lang } = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 6rem 0 4rem;
+    padding: 7rem 0 5rem;
     position: relative;
   }
 
-  .hero-inner {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
-    width: 100%;
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--text-secondary);
+    margin-bottom: clamp(2.5rem, 7vw, 4.5rem);
+    flex-wrap: wrap;
+  }
+  .status .sep { color: var(--hairline-strong); }
+  .status .clock { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+  .dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #2ecc71;
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5);
+    animation: ping 2.4s var(--ease) infinite;
+  }
+  @keyframes ping {
+    0% { box-shadow: 0 0 0 0 rgba(46,204,113,0.5); }
+    70%,100% { box-shadow: 0 0 0 7px rgba(46,204,113,0); }
+  }
+
+  .hero-grid {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4rem;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: end;
   }
 
-  .hero-overline {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+  .role {
     color: var(--accent);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .hero-name {
+  .statement {
+    font-size: clamp(2.4rem, 6.2vw, 5.4rem);
+    line-height: 1.02;
     color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.03em;
+    max-width: 16ch;
+    letter-spacing: -0.015em;
   }
+  .statement .tail { display: inline; color: var(--text-secondary); }
+  .statement .dash { color: var(--accent); }
 
-  .hero-title {
-    font-size: clamp(1.1rem, 2vw, 1.35rem);
-    font-weight: 500;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-    color: var(--text-muted);
-    max-width: 480px;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-  }
-
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.85rem 1.75rem;
-    background: var(--accent);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.875rem;
-    border-radius: 6px;
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-
-  .hero-cta:hover {
-    background: var(--accent-hover);
-    transform: translateY(-1px);
-  }
-
-  .hero-photo {
-    position: relative;
-    width: 280px;
-    height: 340px;
-    flex-shrink: 0;
-  }
-
-  .photo-accent {
-    position: absolute;
-    inset: 0;
-    background: var(--accent);
-    border-radius: 12px;
-    transform: translate(10px, 10px);
-    opacity: 0.35;
-  }
-
-  .hero-photo img {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 2px solid var(--border);
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+  .hero-foot {
+    margin-top: clamp(1.75rem, 4vw, 2.75rem);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--text-muted);
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
+    gap: 1.5rem;
+    max-width: 44ch;
+  }
+  .intro {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
   }
 
-  .scroll-line {
-    width: 1px;
-    height: 2rem;
-    background: var(--border);
+  .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.8rem 1.4rem;
+    background: var(--accent); color: #fff;
+    font-weight: 600; font-size: 0.85rem;
+    border-radius: 99px;
+    transition: transform 0.25s var(--ease), filter 0.25s var(--ease);
+  }
+  .btn-primary svg { transition: transform 0.25s var(--ease); }
+  .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.06); }
+  .btn-primary:hover svg { transform: translateX(3px); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center;
+    padding: 0.8rem 1.4rem;
+    font-weight: 500; font-size: 0.85rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--hairline);
+    border-radius: 99px;
+    transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+  }
+  .btn-ghost:hover { border-color: var(--hairline-strong); color: var(--text-primary); }
+
+  /* portrait card */
+  .hero-card {
+    width: clamp(180px, 22vw, 240px);
+    flex-shrink: 0;
+  }
+  .portrait {
     position: relative;
+    aspect-ratio: 4 / 5;
+    border: 1px solid var(--hairline);
     overflow: hidden;
+    background: var(--surface);
   }
+  .portrait img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.02);
+    transition: filter 0.5s var(--ease), transform 0.6s var(--ease);
+  }
+  .hero-card:hover .portrait img { filter: grayscale(0); transform: scale(1.03); }
+  .card-meta {
+    margin-top: 0.9rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--hairline);
+  }
+  .card-name {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    line-height: 1.15;
+  }
+  .card-role { color: var(--text-muted); margin-top: 0.3rem; font-size: 0.62rem; }
 
-  .scroll-dot {
+  /* scroll cue */
+  .scroll-cue {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 40%;
-    background: var(--accent);
-    animation: scrollDown 1.5s ease-in-out infinite;
+    bottom: 2rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+    color: var(--text-muted);
+    font-size: 0.6rem;
   }
+  .cue-line { width: 1px; height: 2.4rem; background: var(--hairline); position: relative; overflow: hidden; }
+  .cue-dot { position: absolute; inset: 0; height: 45%; background: var(--accent); animation: cue 1.8s var(--ease) infinite; }
+  @keyframes cue { 0% { transform: translateY(-110%); } 100% { transform: translateY(240%); } }
 
-  @keyframes scrollDown {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(300%); }
-  }
-
-  @media (max-width: 1024px) {
-    .hero-inner {
-      grid-template-columns: 1fr;
-      text-align: center;
-      gap: 2.5rem;
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; align-items: start; }
+    .hero-card {
+      order: -1;
+      width: 100%;
+      display: flex; align-items: center; gap: 1.1rem;
     }
-
-    .hero-subtitle {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-photo {
-      width: 220px;
-      height: 270px;
-      margin: 0 auto;
-    }
+    .portrait { width: 84px; aspect-ratio: 1; border-radius: 50%; flex-shrink: 0; }
+    .card-meta { margin-top: 0; padding-top: 0; border-top: none; }
+    .statement { max-width: none; }
+    .scroll-cue { display: none; }
   }
 </style>
+
+<script>
+  // Live local time for the visitor — a small "alive" detail.
+  const clock = document.getElementById('clock');
+  if (clock) {
+    const tick = () => {
+      const d = new Date();
+      const p = (n: number) => String(n).padStart(2, '0');
+      clock.textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+    };
+    tick();
+    setInterval(tick, 1000);
+  }
+</script>

@@ -1,128 +1,133 @@
 ---
-interface Props {
-  t: any;
-}
-
+interface Props { t: any; }
 const { t } = Astro.props;
+const c = t.capabilities;
 ---
 
-<section class="services" id="services">
-  <div class="services-inner">
-    <div data-reveal>
-      <p class="section-label">{t.services.sectionTitle}</p>
-      <h2 class="section-heading">{t.services.headline}</h2>
+<section class="cap" id="capabilities">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="sec-index">({c.index})</span>
+      <span class="sec-title">{c.title}</span>
+      <span class="sec-meta">{c.meta}</span>
     </div>
 
-    <div class="services-grid">
-      {t.services.items.map((service: { title: string; description: string; icon: string }, index: number) => (
-        <div class="service-card" data-reveal data-reveal-delay={String(index * 0.1)}>
-          <div class="service-icon">
-            {service.icon === 'frontend' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <path d="M3 9h18"/>
-                <path d="M9 21V9"/>
-              </svg>
-            )}
-            {service.icon === 'backend' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="2" width="20" height="8" rx="2"/>
-                <rect x="2" y="14" width="20" height="8" rx="2"/>
-                <circle cx="6" cy="6" r="1" fill="currentColor"/>
-                <circle cx="6" cy="18" r="1" fill="currentColor"/>
-              </svg>
-            )}
-            {service.icon === 'devops' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-              </svg>
-            )}
-            {service.icon === 'ai' && (
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="10" rx="2"/>
-                <path d="M7 11V7a5 5 0 0110 0v4"/>
-                <circle cx="9" cy="16" r="1" fill="currentColor"/>
-                <circle cx="15" cy="16" r="1" fill="currentColor"/>
-              </svg>
-            )}
+    <ul class="rows">
+      {c.items.map((item: { id: string; title: string; description: string; tags: string[] }, i: number) => (
+        <li class="row" data-reveal data-reveal-delay={String(i * 0.06)} tabindex="0">
+          <div class="row-top">
+            <span class="row-id mono">{item.id}</span>
+            <h3 class="row-title serif">{item.title}</h3>
+            <span class="row-mark" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17 17 7M9 7h8v8"/></svg>
+            </span>
           </div>
-          <h3 class="service-title">{service.title}</h3>
-          <p class="service-desc">{service.description}</p>
-        </div>
+          <div class="row-reveal">
+            <div class="row-reveal-inner">
+              <p class="row-desc">{item.description}</p>
+              <ul class="tags">
+                {item.tags.map((tag: string) => <li class="tag mono">{tag}</li>)}
+              </ul>
+            </div>
+          </div>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </section>
 
 <style>
-  .services {
-    padding: var(--section-padding) 0;
-    background: var(--surface-0);
+  .cap { padding: var(--section-py) 0; background: var(--surface); }
+
+  .rows {
+    list-style: none;
+    border-top: 1px solid var(--hairline);
   }
 
-  .services-inner {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
+  .row {
+    border-bottom: 1px solid var(--hairline);
+    padding: clamp(1.25rem, 3vw, 1.9rem) 0;
+    cursor: default;
+    position: relative;
+    transition: padding-left 0.4s var(--ease);
   }
-
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
+  .row::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.4s var(--ease);
   }
+  .row:hover, .row:focus-visible { padding-left: 1.5rem; outline: none; }
+  .row:hover::before, .row:focus-visible::before { transform: scaleY(1); }
 
-  .section-heading {
-    color: var(--text-primary);
-    margin-bottom: 2.5rem;
-  }
-
-  .services-grid {
+  .row-top {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
   }
+  .row-id { color: var(--text-muted); transition: color 0.3s var(--ease); }
+  .row:hover .row-id, .row:focus-visible .row-id { color: var(--accent); }
 
-  .service-card {
-    background: var(--surface-2);
-    border-left: 4px solid var(--accent);
-    padding: 1.75rem;
-    border-radius: 6px;
-    transition: transform 0.25s ease, border-left-width 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .service-card:hover {
-    transform: translateX(-4px);
-    border-left-width: 6px;
-    box-shadow: var(--shadow-card);
-  }
-
-  .service-icon {
-    color: var(--accent);
-    margin-bottom: 1rem;
-  }
-
-  .service-title {
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 1.05rem;
+  .row-title {
+    font-size: clamp(1.5rem, 3.6vw, 2.4rem);
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    line-height: 1.05;
   }
 
-  .service-desc {
-    font-size: 0.875rem;
-    line-height: 1.6;
+  .row-mark {
+    color: var(--text-muted);
+    display: flex;
+    transition: color 0.3s var(--ease), transform 0.4s var(--ease);
+  }
+  .row:hover .row-mark, .row:focus-visible .row-mark {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  /* Expanding reveal */
+  .row-reveal {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.45s var(--ease), opacity 0.45s var(--ease);
+    opacity: 0;
+  }
+  .row:hover .row-reveal, .row:focus-visible .row-reveal { grid-template-rows: 1fr; opacity: 1; }
+  .row-reveal-inner { overflow: hidden; }
+  .row-reveal-inner > * { margin-top: 1.1rem; }
+
+  .row-desc {
+    max-width: 60ch;
+    font-size: 0.95rem;
+    line-height: 1.7;
     color: var(--text-secondary);
+    /* offset to align under the title column */
+    padding-left: calc(2ch + clamp(1rem, 3vw, 2rem));
+  }
+
+  .tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-left: calc(2ch + clamp(1rem, 3vw, 2rem));
+  }
+  .tag {
+    color: var(--text-muted);
+    border: 1px solid var(--hairline);
+    border-radius: 99px;
+    padding: 0.35rem 0.75rem;
+    line-height: 1;
   }
 
   @media (max-width: 640px) {
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
+    /* On touch, keep things readable: reveal stays open. */
+    .row-reveal { grid-template-rows: 1fr; opacity: 1; }
+    .row-desc, .tags { padding-left: 0; }
+    .row-mark { display: none; }
   }
 </style>

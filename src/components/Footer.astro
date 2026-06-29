@@ -1,45 +1,49 @@
 ---
-interface Props {
-  t: any;
-}
-
+interface Props { t: any; }
 const { t } = Astro.props;
 ---
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <p class="footer-copyright">{t.footer.copyright}</p>
-    <p class="footer-tagline">{t.footer.tagline}</p>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p class="copy mono">{t.footer.copyright}</p>
+    <p class="tagline serif">{t.footer.tagline}</p>
+    <a href="#top" class="top mono">
+      {t.footer.backToTop}
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </a>
   </div>
 </footer>
 
 <style>
-  .site-footer {
-    border-top: 1px solid var(--border);
-    padding: 2rem 0;
-    background: var(--surface-1);
+  .footer {
+    border-top: 1px solid var(--hairline);
+    padding: 2.5rem 0;
   }
-
   .footer-inner {
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--container-padding);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
     flex-wrap: wrap;
-    gap: 0.5rem;
   }
-
-  .footer-copyright,
-  .footer-tagline {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-  }
-
-  .footer-tagline {
+  .copy { color: var(--text-muted); }
+  .tagline {
     font-style: italic;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+  }
+  .top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text-secondary);
+    transition: color 0.2s var(--ease);
+  }
+  .top svg { transition: transform 0.25s var(--ease); }
+  .top:hover { color: var(--accent); }
+  .top:hover svg { transform: translateY(-3px); }
+
+  @media (max-width: 560px) {
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
   }
 </style>
