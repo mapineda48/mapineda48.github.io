@@ -1,220 +1,205 @@
 export const translations = {
   en: {
     nav: {
-      home: "Home",
-      about: "About",
-      services: "Services",
-      journey: "Journey",
-      contact: "Contact"
+      about: "Context",
+      capabilities: "Capabilities",
+      journey: "Trajectory",
+      contact: "Contact",
     },
     hero: {
-      greeting: "Hello, I'm",
+      role: "Software Engineer",
+      available: "Available for work",
+      location: "Colombia",
+      statement:
+        "I build software that turns business ideas into reliable, scalable products — from the interface to the infrastructure to the AI behind it.",
       name: "Miguel Angel Pineda",
-      title: "Software Developer & Tech Solutions Architect",
-      subtitle: "Transforming businesses through innovative technology solutions, from frontend to AI agents",
-      cta: "Let's Work Together",
-      scrollDown: "Explore my work"
+      roleLine: "Software Developer · Solutions Architect",
+      intro:
+        "Empirical, full-stack, relentlessly curious. Ten-plus years of shipping has taken me from frontend craft to backend systems, DevOps, and now AI agents.",
+      ctaPrimary: "Start a project",
+      ctaSecondary: "Read the index",
     },
     about: {
-      sectionTitle: "About Me",
-      headline: "Driven by Curiosity, Powered by Experience",
-      description: `I'm an empirical developer who has always been passionate about staying at the forefront of technological advances. Since my early days as a frontend developer, I've maintained an insatiable curiosity that has driven me to constantly evolve and master new technologies.
-
-My journey has taken me through the entire technology stack—from crafting intuitive user interfaces to architecting robust backend systems, and then diving deep into the world of DevOps to optimize deployment and infrastructure. Now, with the revolution of artificial intelligence, I'm at the cutting edge, implementing AI agents and intelligent solutions that transform how businesses operate.
-
-What sets me apart is not just technical knowledge, but the ability to understand business needs and translate them into efficient, scalable solutions. Every project is an opportunity to learn and deliver real value.`,
+      index: "01",
+      title: "Context",
+      lead: "I don't just write code — I translate business needs into systems that hold up under real load.",
+      body: [
+        "Since my first days as a frontend developer, an insatiable curiosity has pushed me to keep evolving and mastering new technologies. That curiosity carried me across the entire stack: from crafting intuitive interfaces, to architecting robust backends, to diving deep into DevOps to optimize deployment and infrastructure.",
+        "Now, with the AI revolution, I work at the cutting edge — implementing intelligent agents and automation that change how businesses operate. What sets me apart is the ability to understand the business and turn it into efficient, scalable solutions. Every project is a chance to learn and deliver real value.",
+      ],
       stats: [
-        { number: "5+", label: "Years of Experience" },
-        { number: "50+", label: "Projects Delivered" },
-        { number: "100%", label: "Client Satisfaction" }
-      ]
+        { number: "10+", label: "Years shipping" },
+        { number: "50+", label: "Projects delivered" },
+        { number: "∞", label: "Things still to learn" },
+      ],
     },
-    services: {
-      sectionTitle: "Services",
-      headline: "Solutions Tailored to Your Business",
+    capabilities: {
+      index: "02",
+      title: "Capabilities",
+      meta: "What I do",
       items: [
         {
+          id: "01",
           title: "Frontend Development",
-          description: "Modern, responsive, and high-performance user interfaces using React, Next.js, Vue, and the latest web technologies.",
-          icon: "frontend"
+          description:
+            "Modern, responsive, high-performance interfaces with React, Next.js, Vue and the current web platform.",
+          tags: ["React", "Next.js", "TypeScript", "Astro"],
         },
         {
+          id: "02",
           title: "Backend Development",
-          description: "Robust and scalable APIs, microservices architecture, and efficient database design with Node.js, Python, and cloud services.",
-          icon: "backend"
+          description:
+            "Robust, scalable APIs, microservice architectures and efficient data design with Node.js, Python and cloud services.",
+          tags: ["Node.js", "Python", "PostgreSQL", "REST / GraphQL"],
         },
         {
+          id: "03",
           title: "DevOps & Cloud",
-          description: "CI/CD automation, infrastructure as code, Docker, Kubernetes, and cloud solutions on AWS, GCP, and Azure.",
-          icon: "devops"
+          description:
+            "CI/CD automation, infrastructure as code, Docker and Kubernetes across AWS, GCP and Azure.",
+          tags: ["Docker", "Kubernetes", "Terraform", "AWS / GCP"],
         },
         {
+          id: "04",
           title: "AI Agents & Automation",
-          description: "Implementation of intelligent agents and AI-powered solutions to automate processes and enhance business decision-making.",
-          icon: "ai"
-        }
-      ]
+          description:
+            "Intelligent agents and AI-powered solutions that automate processes and sharpen decision-making.",
+          tags: ["LLMs", "Agents", "RAG", "Automation"],
+        },
+      ],
     },
     journey: {
-      sectionTitle: "My Journey",
-      headline: "Evolution Through Technology",
+      index: "03",
+      title: "Trajectory",
+      meta: "How I got here",
       milestones: [
-        {
-          year: "2019",
-          title: "Frontend Developer",
-          description: "Started my career building interactive user interfaces with React and modern JavaScript frameworks."
-        },
-        {
-          year: "2020",
-          title: "Full Stack Developer",
-          description: "Expanded to backend development, mastering Node.js, databases, and API architecture."
-        },
-        {
-          year: "2022",
-          title: "DevOps Specialist",
-          description: "Embraced infrastructure automation, CI/CD pipelines, and cloud-native technologies."
-        },
-        {
-          year: "2024",
-          title: "AI Solutions Architect",
-          description: "Now pioneering the implementation of AI agents and intelligent automation for businesses."
-        }
-      ]
+        { year: "2019", title: "Frontend Developer", description: "Started building interactive interfaces with React and modern JavaScript." },
+        { year: "2020", title: "Full Stack Developer", description: "Moved into backend — Node.js, databases and API architecture." },
+        { year: "2022", title: "DevOps Specialist", description: "Embraced infrastructure automation, CI/CD pipelines and cloud-native tooling." },
+        { year: "2024", title: "AI Solutions Architect", description: "Now pioneering AI agents and intelligent automation for businesses." },
+      ],
     },
     contact: {
-      sectionTitle: "Contact",
-      headline: "Let's Build Something Amazing",
-      description: "Ready to transform your business with cutting-edge technology? I'm here to help you achieve your goals.",
-      form: {
-        name: "Your Name",
-        email: "Your Email",
-        message: "Your Message",
-        send: "Send Message"
-      },
-      info: {
-        email: "mapineda48@gmail.com",
-        location: "Colombia",
-        availability: "Available for projects"
-      }
-    },
-    theme: {
-      toggle: "Toggle theme",
-      dark: "Dark mode",
-      light: "Light mode"
+      index: "04",
+      title: "Contact",
+      lead: "Have something worth building?",
+      cta: "Let's talk.",
+      email: "mapineda48@gmail.com",
+      note: "Usually replies within a day. Based in Colombia, working worldwide.",
+      socials: [
+        { label: "GitHub", href: "https://github.com/mapineda48" },
+        { label: "LinkedIn", href: "https://linkedin.com/in/mapineda48" },
+        { label: "X / Twitter", href: "https://twitter.com/mapineda48" },
+      ],
     },
     footer: {
-      copyright: "© 2025 Miguel Angel Pineda. All rights reserved.",
-      tagline: "Building the future, one line of code at a time."
-    }
+      copyright: "© 2026 Miguel Angel Pineda",
+      tagline: "Built line by line.",
+      backToTop: "Back to top",
+    },
+    theme: { toggle: "Toggle theme" },
   },
+
   es: {
     nav: {
-      home: "Inicio",
-      about: "Sobre Mí",
-      services: "Servicios",
+      about: "Contexto",
+      capabilities: "Capacidades",
       journey: "Trayectoria",
-      contact: "Contacto"
+      contact: "Contacto",
     },
     hero: {
-      greeting: "Hola, soy",
+      role: "Ingeniero de Software",
+      available: "Disponible para proyectos",
+      location: "Colombia",
+      statement:
+        "Construyo software que convierte ideas de negocio en productos confiables y escalables — de la interfaz a la infraestructura y la IA que hay detrás.",
       name: "Miguel Angel Pineda",
-      title: "Desarrollador de Software & Arquitecto de Soluciones",
-      subtitle: "Transformando empresas a través de soluciones tecnológicas innovadoras, desde frontend hasta agentes de IA",
-      cta: "Trabajemos Juntos",
-      scrollDown: "Explora mi trabajo"
+      roleLine: "Desarrollador de Software · Arquitecto de Soluciones",
+      intro:
+        "Empírico, full-stack, incansablemente curioso. Más de diez años entregando me han llevado del craft del frontend a los sistemas backend, el DevOps y ahora los agentes de IA.",
+      ctaPrimary: "Iniciar un proyecto",
+      ctaSecondary: "Ver el índice",
     },
     about: {
-      sectionTitle: "Sobre Mí",
-      headline: "Impulsado por la Curiosidad, Potenciado por la Experiencia",
-      description: `Soy un desarrollador empírico que siempre ha sido apasionado por mantenerse a la vanguardia de los avances tecnológicos. Desde mis primeros días como desarrollador frontend, he mantenido una curiosidad insaciable que me ha impulsado a evolucionar constantemente y dominar nuevas tecnologías.
-
-Mi trayectoria me ha llevado a través de todo el stack tecnológico—desde crear interfaces de usuario intuitivas hasta arquitectar sistemas backend robustos, y luego sumergirme en el mundo del DevOps para optimizar el despliegue y la infraestructura. Ahora, con la revolución de la inteligencia artificial, estoy en la vanguardia, implementando agentes de IA y soluciones inteligentes que transforman la manera en que operan las empresas.
-
-Lo que me distingue no es solo el conocimiento técnico, sino la capacidad de entender las necesidades del negocio y traducirlas en soluciones eficientes y escalables. Cada proyecto es una oportunidad para aprender y entregar valor real.`,
+      index: "01",
+      title: "Contexto",
+      lead: "No solo escribo código — traduzco necesidades de negocio en sistemas que aguantan bajo carga real.",
+      body: [
+        "Desde mis primeros días como desarrollador frontend, una curiosidad insaciable me ha empujado a evolucionar y dominar nuevas tecnologías. Esa curiosidad me llevó a través de todo el stack: de crear interfaces intuitivas, a arquitectar backends robustos, hasta sumergirme en DevOps para optimizar el despliegue y la infraestructura.",
+        "Ahora, con la revolución de la IA, trabajo en la vanguardia — implementando agentes inteligentes y automatización que cambian la forma en que operan las empresas. Lo que me distingue es entender el negocio y traducirlo en soluciones eficientes y escalables. Cada proyecto es una oportunidad para aprender y entregar valor real.",
+      ],
       stats: [
-        { number: "5+", label: "Años de Experiencia" },
-        { number: "50+", label: "Proyectos Entregados" },
-        { number: "100%", label: "Satisfacción del Cliente" }
-      ]
+        { number: "10+", label: "Años entregando" },
+        { number: "50+", label: "Proyectos entregados" },
+        { number: "∞", label: "Cosas por aprender" },
+      ],
     },
-    services: {
-      sectionTitle: "Servicios",
-      headline: "Soluciones a la Medida de tu Negocio",
+    capabilities: {
+      index: "02",
+      title: "Capacidades",
+      meta: "Lo que hago",
       items: [
         {
+          id: "01",
           title: "Desarrollo Frontend",
-          description: "Interfaces de usuario modernas, responsivas y de alto rendimiento usando React, Next.js, Vue y las últimas tecnologías web.",
-          icon: "frontend"
+          description:
+            "Interfaces modernas, responsivas y de alto rendimiento con React, Next.js, Vue y la plataforma web actual.",
+          tags: ["React", "Next.js", "TypeScript", "Astro"],
         },
         {
+          id: "02",
           title: "Desarrollo Backend",
-          description: "APIs robustas y escalables, arquitectura de microservicios y diseño eficiente de bases de datos con Node.js, Python y servicios cloud.",
-          icon: "backend"
+          description:
+            "APIs robustas y escalables, arquitecturas de microservicios y diseño de datos eficiente con Node.js, Python y servicios cloud.",
+          tags: ["Node.js", "Python", "PostgreSQL", "REST / GraphQL"],
         },
         {
+          id: "03",
           title: "DevOps & Cloud",
-          description: "Automatización CI/CD, infraestructura como código, Docker, Kubernetes y soluciones cloud en AWS, GCP y Azure.",
-          icon: "devops"
+          description:
+            "Automatización CI/CD, infraestructura como código, Docker y Kubernetes en AWS, GCP y Azure.",
+          tags: ["Docker", "Kubernetes", "Terraform", "AWS / GCP"],
         },
         {
+          id: "04",
           title: "Agentes IA & Automatización",
-          description: "Implementación de agentes inteligentes y soluciones potenciadas por IA para automatizar procesos y mejorar la toma de decisiones empresariales.",
-          icon: "ai"
-        }
-      ]
+          description:
+            "Agentes inteligentes y soluciones potenciadas por IA que automatizan procesos y afinan la toma de decisiones.",
+          tags: ["LLMs", "Agentes", "RAG", "Automatización"],
+        },
+      ],
     },
     journey: {
-      sectionTitle: "Mi Trayectoria",
-      headline: "Evolución a Través de la Tecnología",
+      index: "03",
+      title: "Trayectoria",
+      meta: "Cómo llegué aquí",
       milestones: [
-        {
-          year: "2019",
-          title: "Desarrollador Frontend",
-          description: "Inicié mi carrera construyendo interfaces de usuario interactivas con React y frameworks modernos de JavaScript."
-        },
-        {
-          year: "2020",
-          title: "Desarrollador Full Stack",
-          description: "Expandí al desarrollo backend, dominando Node.js, bases de datos y arquitectura de APIs."
-        },
-        {
-          year: "2022",
-          title: "Especialista DevOps",
-          description: "Adopté la automatización de infraestructura, pipelines CI/CD y tecnologías cloud-native."
-        },
-        {
-          year: "2024",
-          title: "Arquitecto de Soluciones IA",
-          description: "Ahora liderando la implementación de agentes de IA y automatización inteligente para empresas."
-        }
-      ]
+        { year: "2019", title: "Desarrollador Frontend", description: "Empecé construyendo interfaces interactivas con React y JavaScript moderno." },
+        { year: "2020", title: "Desarrollador Full Stack", description: "Pasé al backend — Node.js, bases de datos y arquitectura de APIs." },
+        { year: "2022", title: "Especialista DevOps", description: "Adopté la automatización de infraestructura, pipelines CI/CD y herramientas cloud-native." },
+        { year: "2024", title: "Arquitecto de Soluciones IA", description: "Ahora liderando agentes de IA y automatización inteligente para empresas." },
+      ],
     },
     contact: {
-      sectionTitle: "Contacto",
-      headline: "Construyamos Algo Increíble",
-      description: "¿Listo para transformar tu negocio con tecnología de vanguardia? Estoy aquí para ayudarte a alcanzar tus objetivos.",
-      form: {
-        name: "Tu Nombre",
-        email: "Tu Email",
-        message: "Tu Mensaje",
-        send: "Enviar Mensaje"
-      },
-      info: {
-        email: "mapineda48@gmail.com",
-        location: "Colombia",
-        availability: "Disponible para proyectos"
-      }
-    },
-    theme: {
-      toggle: "Alternar tema",
-      dark: "Modo oscuro",
-      light: "Modo claro"
+      index: "04",
+      title: "Contacto",
+      lead: "¿Tienes algo que valga la pena construir?",
+      cta: "Hablemos.",
+      email: "mapineda48@gmail.com",
+      note: "Suele responder en un día. Basado en Colombia, trabajando para el mundo.",
+      socials: [
+        { label: "GitHub", href: "https://github.com/mapineda48" },
+        { label: "LinkedIn", href: "https://linkedin.com/in/mapineda48" },
+        { label: "X / Twitter", href: "https://twitter.com/mapineda48" },
+      ],
     },
     footer: {
-      copyright: "© 2025 Miguel Angel Pineda. Todos los derechos reservados.",
-      tagline: "Construyendo el futuro, una línea de código a la vez."
-    }
-  }
+      copyright: "© 2026 Miguel Angel Pineda",
+      tagline: "Construido línea a línea.",
+      backToTop: "Volver arriba",
+    },
+    theme: { toggle: "Cambiar tema" },
+  },
 } as const;
 
 export type SupportedLang = keyof typeof translations;

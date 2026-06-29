@@ -15,12 +15,15 @@ Personal portfolio website for Miguel Angel Pineda — Software Developer & Tech
 
 ## Design
 
-Editorial Brutalism — typography-driven design with intentional color and purposeful motion.
+**The Index** — the site is treated like a typographic technical document: numbered
+sections, monospaced metadata, oversized serif statements and generous negative space.
+Minimal, original, and deliberate rather than the usual card-grid portfolio.
 
-- **Fonts:** Instrument Serif (headlines) + DM Sans (body), self-hosted via Fontsource
+- **Three type registers:** Instrument Serif (display) · DM Sans (body) · system monospace (metadata)
 - **Accent:** Vermillion — warm, distinctive, not the typical tech-blue
-- **Theme:** Dark/light toggle with `localStorage` persistence and flash prevention
-- **Layout:** Clean editorial grid, solid card backgrounds with accent borders
+- **Theme:** Dark "ink" / light "paper" toggle with `localStorage` persistence and flash prevention
+- **Signatures:** numbered sections, a capabilities "directory listing" that expands on hover,
+  a giant `mailto:` as the closing CTA, live local-time status and a scroll-progress bar
 
 ## Development
 
