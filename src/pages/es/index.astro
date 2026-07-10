@@ -1,16 +1,12 @@
 ---
-import Home from '../../components/Home.astro';
 import Layout from '../../layouts/Layout.astro';
+import Home from '../../components/Home.astro';
 import { translations } from '../../i18n';
 
 const lang = 'es';
 const t = translations[lang];
 ---
 
-<Layout 
-  lang={lang}
-  title="Miguel Angel Pineda | Desarrollador de Software & Arquitecto de Soluciones"
-  description="Transformando empresas a través de soluciones tecnológicas innovadoras. Experto en Frontend, Backend, DevOps y soluciones potenciadas por IA."
->
+<Layout lang={lang} title={t.meta.title} description={t.meta.description}>
   <Home t={t} lang={lang} />
 </Layout>

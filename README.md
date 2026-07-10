@@ -1,29 +1,27 @@
 # mapineda48.de
 
-Personal portfolio website for Miguel Angel Pineda — Software Developer & Tech Solutions Architect.
+Personal site of Miguel Angel Pineda — Independent Software Engineer.
 
 **Live:** [www.mapineda48.de](https://www.mapineda48.de)
 
-## Tech Stack
-
-- [Astro](https://astro.build) — Static site generator
-- [React](https://react.dev) — Interactive islands (theme toggle, scroll animations)
-- [Tailwind CSS v4](https://tailwindcss.com) — Utility-first styling
-- [TypeScript](https://www.typescriptlang.org) — Type safety
-- [Motion](https://motion.dev) — Scroll-triggered reveal animations
-- [Lucide React](https://lucide.dev) — Icon set
-
 ## Design
 
-**The Index** — the site is treated like a typographic technical document: numbered
-sections, monospaced metadata, oversized serif statements and generous negative space.
-Minimal, original, and deliberate rather than the usual card-grid portfolio.
+**Local environment active** — an ultra-minimal, strict-dark manifesto rather than a
+portfolio. Near-black canvas (`#050505`), a single surgical terminal-green accent, and
+radical typographic contrast: massive geometric sans statements against fine monospaced
+metadata. No skill bars, no card grids, no filler — every word earns its place.
 
-- **Three type registers:** Instrument Serif (display) · DM Sans (body) · system monospace (metadata)
-- **Accent:** Vermillion — warm, distinctive, not the typical tech-blue
-- **Theme:** Dark "ink" / light "paper" toggle with `localStorage` persistence and flash prevention
-- **Signatures:** numbered sections, a capabilities "directory listing" that expands on hover,
-  a giant `mailto:` as the closing CTA, live local-time status and a scroll-progress bar
+- **Type:** Space Grotesk (display) · JetBrains Mono (metadata)
+- **Sections:** one-statement hero → `01 / stack` as a config-style definition list →
+  `02 / selected work` as hairline list rows → `03 / contact` with a giant `mailto:`
+- **Motion:** a single IntersectionObserver fade-in — the only JavaScript shipped to the client
+- **Performance:** static Astro output, zero frameworks, zero trackers
+
+## Tech Stack
+
+- [Astro](https://astro.build) — static site generator, plain `.astro` components
+- Hand-written CSS custom properties — no utility framework, no animation library
+- [TypeScript](https://www.typescriptlang.org) — typed i18n dictionary (EN / ES)
 
 ## Development
 
