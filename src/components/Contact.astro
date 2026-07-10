@@ -37,7 +37,10 @@ const c = t.contact;
 </section>
 
 <style>
-  .contact { padding: var(--section-py) 0; background: var(--surface); }
+  .contact {
+    padding: var(--section-py) 0;
+    background: color-mix(in srgb, var(--surface) 60%, transparent);
+  }
 
   .contact-lead {
     font-size: clamp(1.8rem, 4vw, 3rem);
