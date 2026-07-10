@@ -113,6 +113,19 @@ img {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--hairline-strong); border-radius: 99px; }
 
+/* ---------- WebGL backdrop ---------- */
+#backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  display: block;
+  pointer-events: none;
+}
+/* Lift real content above the aura */
+main, .footer { position: relative; z-index: 1; }
+
 /* ---------- Shared primitives ---------- */
 .wrap {
   max-width: var(--maxw);

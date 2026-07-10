@@ -37,7 +37,10 @@ const c = t.capabilities;
 </section>
 
 <style>
-  .cap { padding: var(--section-py) 0; background: var(--surface); }
+  .cap {
+    padding: var(--section-py) 0;
+    background: color-mix(in srgb, var(--surface) 60%, transparent);
+  }
 
   .rows {
     list-style: none;
