@@ -1,0 +1,96 @@
+---
+import type { T } from '../i18n';
+
+interface Props {
+  t: T;
+}
+const { t } = Astro.props;
+---
+
+<section class="stack" aria-labelledby="stack-title">
+  <div class="wrap grid">
+    <p class="index mono" data-reveal>
+      <span class="num">{t.stack.index}</span> / {t.stack.label}
+    </p>
+
+    <div class="body">
+      <h2 id="stack-title" class="title" data-reveal>{t.stack.statement}</h2>
+      <p class="note mono" data-reveal style="--reveal-delay: 0.08s">{t.stack.note}</p>
+
+      <dl class="entries mono" data-reveal style="--reveal-delay: 0.14s">
+        {
+          t.stack.entries.map(({ key, value }) => (
+            <div class="row">
+              <dt>{key}</dt>
+              <dd>{value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack {
+    border-top: 1px solid var(--hairline);
+    padding: clamp(5rem, 12vw, 9rem) 0;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.5fr);
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+  @media (max-width: 720px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .index {
+    color: var(--faint);
+  }
+  .index .num {
+    color: var(--accent);
+  }
+
+  .title {
+    font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .note {
+    margin-top: 1.25rem;
+    color: var(--muted);
+  }
+
+  .entries {
+    margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: minmax(7rem, 12rem) 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .row:last-child {
+    border-bottom: 1px solid var(--hairline);
+  }
+  dt {
+    color: var(--faint);
+  }
+  dd {
+    color: var(--text);
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 480px) {
+    .row {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+  }
+</style>

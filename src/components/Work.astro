@@ -1,0 +1,121 @@
+---
+import type { T } from '../i18n';
+
+interface Props {
+  t: T;
+}
+const { t } = Astro.props;
+---
+
+<section class="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <p class="index mono" data-reveal id="work-title">
+      <span class="num">{t.work.index}</span> / {t.work.label}
+    </p>
+
+    <ul class="projects">
+      {
+        t.work.projects.map((p, i) => (
+          <li data-reveal style={`--reveal-delay: ${i * 0.06}s`}>
+            <a class="project" href={p.href} target="_blank" rel="noopener noreferrer">
+              <span class="id mono">{String(i + 1).padStart(3, '0')}</span>
+              <span class="main">
+                <span class="name">{p.name}</span>
+                <span class="line">{p.line}</span>
+              </span>
+              <span class="meta mono">{p.meta}</span>
+              <span class="arrow" aria-hidden="true">↗</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .work {
+    border-top: 1px solid var(--hairline);
+    padding: clamp(5rem, 12vw, 9rem) 0;
+  }
+
+  .index {
+    color: var(--faint);
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .index .num {
+    color: var(--accent);
+  }
+
+  .projects {
+    list-style: none;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1fr) auto 2rem;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: clamp(1.75rem, 4vw, 2.5rem) 0;
+    border-top: 1px solid var(--hairline);
+    transition: border-color 0.4s var(--ease);
+  }
+  li:last-child .project {
+    border-bottom: 1px solid var(--hairline);
+  }
+  .project:hover {
+    border-top-color: var(--hairline-strong);
+  }
+
+  .id {
+    color: var(--faint);
+  }
+
+  .name {
+    display: block;
+    font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    transition: color 0.35s var(--ease);
+  }
+  .line {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  .meta {
+    color: var(--faint);
+    white-space: nowrap;
+  }
+
+  .arrow {
+    color: var(--faint);
+    font-size: 1.1rem;
+    transition:
+      transform 0.35s var(--ease),
+      color 0.35s var(--ease);
+  }
+
+  .project:hover .name {
+    color: var(--accent);
+  }
+  .project:hover .arrow {
+    color: var(--accent);
+    transform: translate(3px, -3px);
+  }
+
+  @media (max-width: 720px) {
+    .project {
+      grid-template-columns: minmax(0, 1fr) 2rem;
+    }
+    .id,
+    .meta {
+      display: none;
+    }
+  }
+</style>

@@ -1,67 +1,54 @@
 ---
-interface Props {
-  t: any;
-  lang: string;
-}
-const { t } = Astro.props;
+import type { T, Lang } from '../i18n';
 
-// Split the statement so we can accent the closing fragment.
-const [stmtMain, stmtTail] = (() => {
-  const s: string = t.hero.statement;
-  const i = s.indexOf('—');
-  return i > -1 ? [s.slice(0, i).trim(), s.slice(i + 1).trim()] : [s, ''];
-})();
+interface Props {
+  t: T;
+  lang: Lang;
+}
+const { t, lang } = Astro.props;
+
+const otherLang = lang === 'en' ? 'es' : 'en';
+const otherHref = lang === 'en' ? '/es/' : '/';
 ---
 
-<header class="hero" id="top">
+<header class="hero">
+  <nav class="wrap nav mono" aria-label="Main">
+    <a href={lang === 'en' ? '/' : '/es/'} class="brand">{t.nav.brand}</a>
+    <a href={otherHref} class="lang link">{otherLang}</a>
+  </nav>
+
   <div class="wrap">
-    <!-- meta status row -->
-    <div class="status mono" data-reveal>
-      <span class="dot" aria-hidden="true"></span>
-      <span>{t.hero.available}</span>
-      <span class="sep">/</span>
-      <span>{t.hero.location}</span>
-      <span class="sep">/</span>
-      <span id="clock" class="clock">—:—:—</span>
-    </div>
+    <p class="status mono" data-reveal>
+      <span class="pulse" aria-hidden="true"></span>
+      {t.hero.status}
+      <span class="sep" aria-hidden="true">/</span>
+      {t.hero.location}
+    </p>
 
-    <div class="hero-grid">
-      <div class="hero-main">
-        <p class="role mono" data-reveal>{t.hero.role}</p>
+    <h1 class="statement" data-reveal style="--reveal-delay: 0.08s">
+      {t.hero.statement.map((line) => <span class="line">{line}</span>)}
+    </h1>
 
-        <h1 class="statement serif" data-reveal data-reveal-delay="0.05">
-          {stmtMain}
-          {stmtTail && <span class="tail"><span class="dash">—</span> {stmtTail}</span>}
-        </h1>
-
-        <div class="hero-foot" data-reveal data-reveal-delay="0.12">
-          <p class="intro">{t.hero.intro}</p>
-          <div class="actions">
-            <a href={`mailto:${t.contact.email}`} class="btn-primary">
-              {t.hero.ctaPrimary}
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a href="#about" class="btn-ghost">{t.hero.ctaSecondary}</a>
-          </div>
-        </div>
-      </div>
-
-      <aside class="hero-card" data-reveal data-reveal-delay="0.18">
-        <div class="portrait">
-          <img src="/me.png" alt={t.hero.name} loading="eager" />
-        </div>
-        <div class="card-meta">
-          <p class="card-name">{t.hero.name}</p>
-          <p class="card-role mono">{t.hero.roleLine}</p>
-        </div>
-      </aside>
+    <div class="foot" data-reveal style="--reveal-delay: 0.18s">
+      <p class="sub">{t.hero.sub}</p>
+      <ul class="links mono">
+        {
+          t.hero.links.map(({ label, href }) => (
+            <li>
+              <a
+                class="link"
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              >
+                {label} <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
-
-  <a href="#about" class="scroll-cue mono" aria-label="Scroll">
-    <span>scroll</span>
-    <span class="cue-line"><span class="cue-dot"></span></span>
-  </a>
 </header>
 
 <style>
@@ -70,159 +57,91 @@ const [stmtMain, stmtTail] = (() => {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 7rem 0 5rem;
     position: relative;
+    padding: 8rem 0 6rem;
+  }
+
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    color: var(--muted);
+  }
+  .brand {
+    color: var(--text);
   }
 
   .status {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 0.7rem;
-    color: var(--text-secondary);
-    margin-bottom: clamp(2.5rem, 7vw, 4.5rem);
-    flex-wrap: wrap;
+    gap: 0.75rem;
+    color: var(--muted);
+    margin-bottom: clamp(2.5rem, 6vw, 4rem);
   }
-  .status .sep { color: var(--hairline-strong); }
-  .status .clock { color: var(--text-muted); font-variant-numeric: tabular-nums; }
-  .dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: #2ecc71;
-    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5);
-    animation: ping 2.4s var(--ease) infinite;
+  .sep {
+    color: var(--faint);
   }
-  @keyframes ping {
-    0% { box-shadow: 0 0 0 0 rgba(46,204,113,0.5); }
-    70%,100% { box-shadow: 0 0 0 7px rgba(46,204,113,0); }
+  .pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2.4s var(--ease) infinite;
   }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: clamp(2rem, 6vw, 5rem);
-    align-items: end;
-  }
-
-  .role {
-    color: var(--accent);
-    margin-bottom: 1.5rem;
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(61, 214, 140, 0.45); }
+    70%, 100% { box-shadow: 0 0 0 8px rgba(61, 214, 140, 0); }
   }
 
   .statement {
-    font-size: clamp(2.4rem, 6.2vw, 5.4rem);
-    line-height: 1.02;
-    color: var(--text-primary);
-    max-width: 16ch;
-    letter-spacing: -0.015em;
+    font-size: clamp(2.9rem, 9.5vw, 7.75rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
   }
-  .statement .tail { display: inline; color: var(--text-secondary); }
-  .statement .dash { color: var(--accent); }
+  .statement .line {
+    display: block;
+  }
+  .statement .line:last-child {
+    color: var(--muted);
+  }
 
-  .hero-foot {
-    margin-top: clamp(1.75rem, 4vw, 2.75rem);
+  .foot {
+    margin-top: clamp(2.5rem, 6vw, 4.5rem);
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    max-width: 44ch;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
   }
-  .intro {
-    font-size: 0.98rem;
-    color: var(--text-secondary);
+  .sub {
+    max-width: 42ch;
+    color: var(--muted);
+    font-size: 1rem;
     line-height: 1.7;
+    text-wrap: pretty;
   }
 
-  .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.8rem 1.4rem;
-    background: var(--accent); color: #fff;
-    font-weight: 600; font-size: 0.85rem;
-    border-radius: 99px;
-    transition: transform 0.25s var(--ease), filter 0.25s var(--ease);
+  .links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
   }
-  .btn-primary svg { transition: transform 0.25s var(--ease); }
-  .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.06); }
-  .btn-primary:hover svg { transform: translateX(3px); }
+  .arrow {
+    display: inline-block;
+    transition: transform 0.35s var(--ease);
+  }
+  .link:hover .arrow {
+    transform: translate(2px, -2px);
+  }
 
-  .btn-ghost {
-    display: inline-flex; align-items: center;
-    padding: 0.8rem 1.4rem;
-    font-weight: 500; font-size: 0.85rem;
-    color: var(--text-secondary);
-    border: 1px solid var(--hairline);
-    border-radius: 99px;
-    transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
-  }
-  .btn-ghost:hover { border-color: var(--hairline-strong); color: var(--text-primary); }
-
-  /* portrait card */
-  .hero-card {
-    width: clamp(180px, 22vw, 240px);
-    flex-shrink: 0;
-  }
-  .portrait {
-    position: relative;
-    aspect-ratio: 4 / 5;
-    border: 1px solid var(--hairline);
-    overflow: hidden;
-    background: var(--surface);
-  }
-  .portrait img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    filter: grayscale(1) contrast(1.02);
-    transition: filter 0.5s var(--ease), transform 0.6s var(--ease);
-  }
-  .hero-card:hover .portrait img { filter: grayscale(0); transform: scale(1.03); }
-  .card-meta {
-    margin-top: 0.9rem;
-    padding-top: 0.9rem;
-    border-top: 1px solid var(--hairline);
-  }
-  .card-name {
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    color: var(--text-primary);
-    line-height: 1.15;
-  }
-  .card-role { color: var(--text-muted); margin-top: 0.3rem; font-size: 0.62rem; }
-
-  /* scroll cue */
-  .scroll-cue {
-    position: absolute;
-    bottom: 2rem; left: 50%;
-    transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
-    color: var(--text-muted);
-    font-size: 0.6rem;
-  }
-  .cue-line { width: 1px; height: 2.4rem; background: var(--hairline); position: relative; overflow: hidden; }
-  .cue-dot { position: absolute; inset: 0; height: 45%; background: var(--accent); animation: cue 1.8s var(--ease) infinite; }
-  @keyframes cue { 0% { transform: translateY(-110%); } 100% { transform: translateY(240%); } }
-
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; align-items: start; }
-    .hero-card {
-      order: -1;
-      width: 100%;
-      display: flex; align-items: center; gap: 1.1rem;
-    }
-    .portrait { width: 84px; aspect-ratio: 1; border-radius: 50%; flex-shrink: 0; }
-    .card-meta { margin-top: 0; padding-top: 0; border-top: none; }
-    .statement { max-width: none; }
-    .scroll-cue { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .pulse { animation: none; }
   }
 </style>
-
-<script>
-  // Live local time for the visitor — a small "alive" detail.
-  const clock = document.getElementById('clock');
-  if (clock) {
-    const tick = () => {
-      const d = new Date();
-      const p = (n: number) => String(n).padStart(2, '0');
-      clock.textContent = `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
-    };
-    tick();
-    setInterval(tick, 1000);
-  }
-</script>

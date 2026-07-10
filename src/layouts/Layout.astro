@@ -1,17 +1,15 @@
 ---
-import '../styles/global.css'
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/jetbrains-mono';
+import '../styles/global.css';
 
 interface Props {
-  lang?: string;
-  title?: string;
-  description?: string;
+  lang: string;
+  title: string;
+  description: string;
 }
 
-const {
-  lang = 'en',
-  title = 'Miguel Angel Pineda | Software Developer & Tech Solutions Architect',
-  description = 'Transforming businesses through innovative technology solutions. Expert in Frontend, Backend, DevOps, and AI-powered solutions.'
-} = Astro.props;
+const { lang, title, description } = Astro.props;
 ---
 
 <!doctype html>
@@ -21,37 +19,36 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="author" content="Miguel Angel Pineda Vega" />
+    <meta name="theme-color" content="#050505" />
 
-    <!-- Theme detection (runs before paint to prevent flash) -->
-    <script is:inline>
-      (function() {
-        var t = localStorage.getItem('theme') ||
-          (matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light');
-        document.documentElement.dataset.theme = t;
-      })();
-    </script>
-
-    <!-- Open Graph / Social -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="/me.png" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-
-    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-
-    <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
   </head>
   <body>
-    <div id="progress"></div>
     <slot />
+
+    <script>
+      // Reveal-on-scroll: the only JavaScript on the site.
+      document.documentElement.classList.add('js');
+      const els = document.querySelectorAll('[data-reveal]');
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            }
+          }
+        },
+        { threshold: 0.15 }
+      );
+      els.forEach((el) => io.observe(el));
+    </script>
   </body>
 </html>
